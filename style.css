@@ -329,7 +329,7 @@ textarea {
     width: min(740px, 82%);
     max-height: calc(100vh - 50px);
 
-    padding: 30px 45px 18px 45px;
+    padding: 30px 45px;
 
     text-align: center;
 }
@@ -1139,40 +1139,48 @@ textarea {
 }
 
 /* ========================================
-   WEBES NÉZET – GOMBOK TÉNYLEGES LEJJEBB HELYEZÉSE
-   A gombok vizuálisan mozdulnak el, ezért a
-   középre igazított tartalom nem húzza őket vissza.
+   WEBES NÉZET – VÉGLEGES GOMB- ÉS PANELBEÁLLÍTÁS
+   A fájl végén van, ezért az alacsony laptopos
+   szabályok sem tudják felülírni.
 ======================================== */
 
 @media (min-width: 701px) {
 
     /* Nyitóoldal */
-    .hero-lunch {
-        margin-top: 18px;
-        margin-bottom: 46px;
-    }
-
     .hero .scroll-button {
         position: relative;
-        top: 42px;
+        top: 75px;
     }
 
-    /* Köszöntő oldal */
-    .welcome-signature {
-        margin-bottom: 42px;
+    /* Köszöntő oldal:
+       a fehér panel alja rövidebb,
+       a gomb pedig külön, a panel alatt marad */
+    .welcome-panel {
+        position: relative;
+
+        padding-bottom: 0 !important;
+        margin-bottom: 115px;
     }
 
     .welcome-panel .scroll-button {
-        position: relative;
-        top: 42px;
+        position: absolute;
+        left: 50%;
+        bottom: -92px;
+
+        margin: 0;
+
+        transform: translateX(-50%);
+    }
+
+    .welcome-panel .scroll-button:hover {
+        transform: translateX(-50%) translateY(-2px);
     }
 
     /* Program oldal */
     .program-container > .scroll-button.program-scroll-button {
         position: relative;
-        top: 42px;
+        top: 75px;
 
         display: flex;
-        margin-top: 44px;
     }
 }
