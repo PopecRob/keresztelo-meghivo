@@ -1144,17 +1144,20 @@ textarea {
 
 @media (min-width: 701px) {
 
+    /* Nyitóoldal */
     .hero-lunch{
         margin-top:18px;
-        margin-bottom:46px;
+        margin-bottom:88px;
     }
 
+    /* Köszöntő oldal */
     .welcome-signature{
-        margin-bottom:42px;
+        margin-bottom:84px;
     }
 
+    /* Program oldal */
     .program-container > .scroll-button.program-scroll-button{
         display:inline-flex;
-        margin-top:44px;
+        margin-top:86px;
     }
 }
