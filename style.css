@@ -1139,41 +1139,23 @@ textarea {
 }
 
 /* ========================================
-   WEBES NÉZET – GOMBOK TÉNYLEGES LEJJEBB HELYEZÉSE
-   A gombok vizuálisan mozdulnak el, ezért a
-   középre igazított tartalom nem húzza őket vissza.
+   WEBES NÉZET – GOMBOK LEJJEBB HELYEZÉSE
 ======================================== */
 
 @media (min-width: 701px) {
 
-    /* Nyitóoldal */
-    .hero-lunch {
-        margin-top: 18px;
-        margin-bottom: 46px;
-    }
-
     .hero .scroll-button {
         position: relative;
-        top: 42px;
-    }
-
-    /* Köszöntő oldal */
-    .welcome-signature {
-        margin-bottom: 42px;
+        top: 75px;
     }
 
     .welcome-panel .scroll-button {
         position: relative;
-        top: 42px;
+        top: 75px;
     }
 
-    /* Program oldal */
-    .program-container > .scroll-button.program-scroll-button {
+    .program-scroll-button {
         position: relative;
-        top: 42px;
-
-        display: flex;
-        margin-top: 44px;
+        top: 75px;
     }
 }
-
