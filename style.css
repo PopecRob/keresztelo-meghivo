@@ -1184,3 +1184,33 @@ textarea {
         display: flex;
     }
 }
+
+/* ========================================
+   KÖSZÖNTŐ PANEL – VÉGLEGES JAVÍTÁS
+======================================== */
+
+@media (min-width: 701px) {
+
+    .welcome-panel {
+        position: relative !important;
+
+        padding-bottom: 0 !important;
+        margin-bottom: 125px !important;
+    }
+
+    .welcome-panel .scroll-button {
+        position: absolute !important;
+        left: 50% !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: -105px !important;
+
+        margin: 0 !important;
+
+        transform: translateX(-50%) !important;
+    }
+
+    .welcome-panel .scroll-button:hover {
+        transform: translateX(-50%) translateY(-2px) !important;
+    }
+}
