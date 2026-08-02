@@ -1139,25 +1139,41 @@ textarea {
 }
 
 /* ========================================
-   WEBES NÉZET – SZELLŐSEBB TÉRKÖZÖK
+   WEBES NÉZET – GOMBOK TÉNYLEGES LEJJEBB HELYEZÉSE
+   A gombok vizuálisan mozdulnak el, ezért a
+   középre igazított tartalom nem húzza őket vissza.
 ======================================== */
 
 @media (min-width: 701px) {
 
     /* Nyitóoldal */
-    .hero-lunch{
-        margin-top:18px;
-        margin-bottom:130px;
+    .hero-lunch {
+        margin-top: 18px;
+        margin-bottom: 46px;
+    }
+
+    .hero .scroll-button {
+        position: relative;
+        top: 42px;
     }
 
     /* Köszöntő oldal */
-    .welcome-signature{
-        margin-bottom:126px;
+    .welcome-signature {
+        margin-bottom: 42px;
+    }
+
+    .welcome-panel .scroll-button {
+        position: relative;
+        top: 42px;
     }
 
     /* Program oldal */
-    .program-container > .scroll-button.program-scroll-button{
-        display:inline-flex;
-        margin-top:128px;
+    .program-container > .scroll-button.program-scroll-button {
+        position: relative;
+        top: 42px;
+
+        display: flex;
+        margin-top: 44px;
     }
 }
+
