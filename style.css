@@ -955,15 +955,18 @@ textarea {
     background: var(--decline-dark);
 }
 
+
 /* ========================================
    ALACSONY LAPTOPKÉPERNYŐ
+   Csak a magasság miatt tömörebb, a színek
+   és az alapelrendezés változatlan marad.
 ======================================== */
 
 @media (max-height: 760px) and (min-width: 901px) {
 
     .hero-content {
-        width: min(760px, 76%);
-        padding-block: 12px;
+        width: min(780px, 76%);
+        padding: 12px 30px;
     }
 
     .hero h1 {
@@ -1028,7 +1031,7 @@ textarea {
 
 
 /* ========================================
-   TABLET / KESKENYEBB KÉPERNYŐ
+   TABLET
 ======================================== */
 
 @media (min-width: 701px) and (max-width: 1024px) {
@@ -1038,7 +1041,7 @@ textarea {
     }
 
     .hero-content {
-        width: min(760px, 88%);
+        width: min(780px, 88%);
         padding-inline: 20px;
     }
 
@@ -1089,7 +1092,7 @@ textarea {
 
 
 /* ========================================
-   TELEFON – KÖZÖS ALAPBEÁLLÍTÁSOK
+   TELEFON – KÖZÖS
 ======================================== */
 
 @media (max-width: 700px) {
@@ -1107,8 +1110,6 @@ textarea {
         min-height: 100svh;
 
         overflow: visible;
-
-        background-position: center;
     }
 
     .welcome-section,
@@ -1228,10 +1229,7 @@ textarea {
         font-size: 11px;
     }
 
-    .attendance-options {
-        grid-template-columns: 1fr;
-    }
-
+    .attendance-options,
     .form-grid {
         grid-template-columns: 1fr;
     }
@@ -1296,97 +1294,197 @@ textarea {
 
 /* ========================================
    TELEFON – ÁLLÓ NÉZET
+   Saját háttér és külön, függőleges elrendezés.
 ======================================== */
 
 @media (max-width: 700px) and (orientation: portrait) {
 
     .screen-section {
-        min-height: 100svh;
+        background-image:
+            linear-gradient(
+                rgba(255, 253, 247, 0.06),
+                rgba(255, 253, 247, 0.06)
+            ),
+            url("images/background-portrait.png");
+
         background-size: cover;
-        background-position: center center;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     .hero {
-        display: flex;
-
         min-height: 100svh;
         height: auto;
 
+        align-items: flex-start;
+
         padding:
-            max(18px, env(safe-area-inset-top))
-            12px
-            max(18px, env(safe-area-inset-bottom));
+            max(42px, env(safe-area-inset-top))
+            16px
+            max(46px, env(safe-area-inset-bottom));
     }
 
     .hero-content {
-        width: min(100%, 520px);
-        padding: 12px 4px;
+        width: min(100%, 460px);
+        margin: 0 auto;
+        padding: 0 4px;
+
+        text-align: center;
     }
 
     .hero-kicker {
-        font-size: clamp(11px, 3.4vw, 14px);
-        letter-spacing: clamp(2px, 1vw, 4px);
+        margin-top: 0;
+
+        color: var(--green-dark);
+
+        font-size: clamp(11px, 3.25vw, 14px);
+        letter-spacing: clamp(2px, 0.9vw, 4px);
     }
 
     .hero h1 {
-        font-size: clamp(56px, 18vw, 86px);
+        margin-top: 3px;
+
+        color: var(--gold);
+
+        font-size: clamp(58px, 18.5vw, 84px);
         line-height: 0.88;
-        letter-spacing: clamp(2px, 1.2vw, 5px);
+        letter-spacing: clamp(2px, 1vw, 5px);
     }
 
     .hero-script {
-        font-size: clamp(45px, 14.5vw, 68px);
+        color: var(--green);
+
+        font-size: clamp(44px, 14vw, 64px);
+        line-height: 0.95;
+    }
+
+    .hero .ornament {
+        margin: 8px auto 10px;
+
+        color: var(--gold);
+    }
+
+    .hero .ornament span {
+        background: rgba(173, 130, 56, 0.75);
     }
 
     .hero-message {
-        font-size: clamp(11px, 3.3vw, 15px);
+        max-width: 360px;
+        margin-inline: auto;
+
+        color: var(--green-dark);
+
+        font-size: clamp(11px, 3.15vw, 14px);
         line-height: 1.35;
-        letter-spacing: 0.6px;
+        letter-spacing: 0.55px;
     }
 
     .hero-details {
-        margin: 14px auto 8px;
+        grid-template-columns: 1fr;
+        gap: 0;
+
+        width: min(92%, 390px);
+        margin: 16px auto 11px;
+
+        background: rgba(255, 253, 247, 0.62);
+
+        border: 1px solid rgba(173, 130, 56, 0.26);
+        border-radius: 18px;
+
+        box-shadow: 0 10px 26px rgba(70, 52, 27, 0.10);
+
+        backdrop-filter: blur(2px);
     }
 
     .hero-detail {
-        min-width: 0;
-        min-height: 78px;
-        padding: 4px 3px;
+        display: grid;
+        grid-template-columns: 43px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        column-gap: 10px;
+
+        min-height: 0;
+        padding: 12px 15px;
+
+        color: var(--green-dark);
+
+        text-align: left;
+
+        border-right: 0;
+        border-bottom: 1px solid rgba(173, 130, 56, 0.30);
+    }
+
+    .hero-detail:last-child {
+        border-bottom: 0;
     }
 
     .hero-detail-icon {
-        margin-bottom: 2px;
+        grid-column: 1;
+        grid-row: 1 / 3;
 
-        font-size: 18px;
+        align-self: center;
+
+        margin: 0;
+
+        font-size: 22px;
+        text-align: center;
     }
 
     .hero-detail strong {
-        font-size: clamp(13px, 3.7vw, 17px);
+        grid-column: 2;
+        grid-row: 1;
+
+        color: var(--green-dark);
+
+        font-size: clamp(17px, 4.8vw, 21px);
         line-height: 1.05;
-        overflow-wrap: anywhere;
     }
 
     .hero-detail small {
+        grid-column: 2;
+        grid-row: 2;
+
         margin-top: 3px;
 
-        font-size: clamp(6px, 1.8vw, 8px);
-        letter-spacing: 0.4px;
+        color: var(--muted);
+
+        font-size: clamp(7px, 2.1vw, 9px);
+        line-height: 1.25;
+        letter-spacing: 0.65px;
     }
 
     .hero-lunch {
-        margin: 3px 0 8px;
+        max-width: 360px;
+        margin: 8px auto 10px;
 
-        font-size: clamp(11px, 3.2vw, 14px);
+        color: var(--green);
+
+        font-size: clamp(11px, 3.15vw, 14px);
+        line-height: 1.25;
+    }
+
+    .hero .scroll-button {
+        min-width: 150px;
+        margin-top: 8px;
+        padding: 10px 28px;
+
+        color: var(--white);
+        background: var(--gold);
+
+        box-shadow: 0 9px 24px rgba(83, 62, 26, 0.28);
+    }
+
+    .hero .scroll-button:hover {
+        background: var(--gold-dark);
     }
 }
 
 
-/* Nagyon keskeny telefonok */
+/* Keskenyebb álló telefon */
 
 @media (max-width: 390px) and (orientation: portrait) {
 
     .hero {
-        padding-inline: 8px;
+        padding-inline: 10px;
     }
 
     .hero-content {
@@ -1394,11 +1492,11 @@ textarea {
     }
 
     .hero h1 {
-        font-size: clamp(52px, 17vw, 68px);
+        font-size: clamp(53px, 17vw, 68px);
     }
 
     .hero-script {
-        font-size: clamp(42px, 14vw, 55px);
+        font-size: clamp(41px, 13.5vw, 55px);
     }
 
     .hero-message {
@@ -1406,20 +1504,12 @@ textarea {
     }
 
     .hero-details {
-        margin-top: 10px;
+        width: 96%;
     }
 
     .hero-detail {
-        min-height: 72px;
-        padding-inline: 2px;
-    }
-
-    .hero-detail strong {
-        font-size: 12px;
-    }
-
-    .hero-detail small {
-        font-size: 6px;
+        grid-template-columns: 40px minmax(0, 1fr);
+        padding-inline: 12px;
     }
 
     .welcome-section,
@@ -1436,8 +1526,49 @@ textarea {
 }
 
 
+/* Alacsonyabb álló telefon */
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 760px) {
+
+    .hero {
+        padding-top: 24px;
+        padding-bottom: 28px;
+    }
+
+    .hero h1 {
+        font-size: clamp(53px, 17vw, 72px);
+    }
+
+    .hero-script {
+        font-size: clamp(40px, 13vw, 55px);
+    }
+
+    .hero .ornament {
+        margin-block: 5px 7px;
+    }
+
+    .hero-message {
+        font-size: 11px;
+    }
+
+    .hero-details {
+        margin-top: 10px;
+        margin-bottom: 7px;
+    }
+
+    .hero-detail {
+        padding-block: 8px;
+    }
+
+    .hero-lunch {
+        margin-block: 5px 7px;
+    }
+}
+
+
 /* ========================================
    TELEFON – FEKVŐ NÉZET
+   Az eredeti vízszintes felépítés marad.
 ======================================== */
 
 @media (orientation: landscape) and (max-height: 600px) and (max-width: 950px) {
@@ -1452,8 +1583,16 @@ textarea {
 
         overflow: visible;
 
+        background-image:
+            linear-gradient(
+                rgba(255, 253, 247, 0.10),
+                rgba(255, 253, 247, 0.10)
+            ),
+            url("images/background.png");
+
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
     }
 
     .hero {
@@ -1473,20 +1612,28 @@ textarea {
     }
 
     .hero-kicker {
+        color: var(--green-dark);
+
         font-size: 11px;
         letter-spacing: 3px;
     }
 
     .hero h1 {
+        color: var(--gold);
+
         font-size: clamp(56px, 12vw, 82px);
         letter-spacing: 4px;
     }
 
     .hero-script {
+        color: var(--green);
+
         font-size: clamp(40px, 8vw, 57px);
     }
 
     .hero-message {
+        color: var(--green-dark);
+
         font-size: 11px;
         line-height: 1.2;
         letter-spacing: 0.5px;
@@ -1504,6 +1651,8 @@ textarea {
     .hero-detail {
         min-height: 58px;
         padding: 2px 8px;
+
+        color: var(--green-dark);
     }
 
     .hero-detail-icon {
@@ -1513,11 +1662,15 @@ textarea {
     }
 
     .hero-detail strong {
+        color: var(--green-dark);
+
         font-size: 14px;
     }
 
     .hero-detail small {
         margin-top: 1px;
+
+        color: var(--muted);
 
         font-size: 6px;
     }
@@ -1525,11 +1678,16 @@ textarea {
     .hero-lunch {
         margin: 2px 0 5px;
 
+        color: var(--green);
+
         font-size: 11px;
     }
 
-    .scroll-button {
+    .hero .scroll-button {
         padding-block: 7px;
+
+        color: var(--white);
+        background: var(--gold);
     }
 
     .welcome-section,
@@ -1637,10 +1795,7 @@ textarea {
         padding: 16px 20px;
     }
 
-    .attendance-options {
-        grid-template-columns: 1fr 1fr;
-    }
-
+    .attendance-options,
     .form-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -1665,7 +1820,7 @@ textarea {
 
 
 /* ========================================
-   AKADÁLYMENTESSÉG ÉS STABILITÁS
+   AKADÁLYMENTESSÉG ÉS KOMPATIBILITÁS
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1692,261 +1847,5 @@ textarea {
         .hero {
             min-height: 100vh;
         }
-    }
-}
-
-/* ========================================
-   VÉGLEGES TELEFONOS ÁLLÓ ELRENDEZÉS
-   Ez a blokk szándékosan a fájl legvégén van,
-   így csak álló telefonon írja felül a korábbi szabályokat.
-======================================== */
-
-@media (max-width: 700px) and (orientation: portrait) {
-
-    .screen-section {
-        background-image:
-            linear-gradient(
-                rgba(255, 253, 247, 0.06),
-                rgba(255, 253, 247, 0.06)
-            ),
-            url("images/background-portrait.png");
-
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .hero {
-        min-height: 100svh;
-        height: auto;
-
-        align-items: flex-start;
-
-        padding:
-            max(42px, env(safe-area-inset-top))
-            16px
-            max(46px, env(safe-area-inset-bottom));
-    }
-
-    .hero-content {
-        width: min(100%, 460px);
-        margin: 0 auto;
-        padding: 0 4px;
-    }
-
-    .hero-kicker {
-        margin-top: 0;
-
-        font-size: clamp(11px, 3.25vw, 14px);
-        letter-spacing: clamp(2px, 0.9vw, 4px);
-    }
-
-    .hero h1 {
-        margin-top: 3px;
-
-        font-size: clamp(58px, 18.5vw, 84px);
-        line-height: 0.88;
-        letter-spacing: clamp(2px, 1vw, 5px);
-    }
-
-    .hero-script {
-        font-size: clamp(44px, 14vw, 64px);
-        line-height: 0.95;
-    }
-
-    .hero .ornament {
-        margin: 8px auto 10px;
-    }
-
-    .hero-message {
-        max-width: 360px;
-        margin-inline: auto;
-
-        font-size: clamp(11px, 3.15vw, 14px);
-        line-height: 1.35;
-        letter-spacing: 0.55px;
-    }
-
-    .hero-details {
-        grid-template-columns: 1fr;
-        gap: 0;
-
-        width: min(92%, 390px);
-        margin: 16px auto 11px;
-
-        background: rgba(255, 253, 247, 0.48);
-
-        border: 1px solid rgba(173, 130, 56, 0.22);
-        border-radius: 18px;
-
-        box-shadow: 0 10px 26px rgba(70, 52, 27, 0.08);
-
-        backdrop-filter: blur(2px);
-    }
-
-    .hero-detail {
-        display: grid;
-        grid-template-columns: 43px minmax(0, 1fr);
-        grid-template-rows: auto auto;
-        column-gap: 10px;
-
-        min-height: 0;
-        padding: 10px 15px;
-
-        text-align: left;
-
-        border-right: 0;
-        border-bottom: 1px solid rgba(173, 130, 56, 0.28);
-    }
-
-    .hero-detail:last-child {
-        border-bottom: 0;
-    }
-
-    .hero-detail-icon {
-        grid-column: 1;
-        grid-row: 1 / 3;
-
-        align-self: center;
-
-        margin: 0;
-
-        font-size: 22px;
-        text-align: center;
-    }
-
-    .hero-detail strong {
-        grid-column: 2;
-        grid-row: 1;
-
-        font-size: clamp(17px, 4.8vw, 21px);
-        line-height: 1.05;
-    }
-
-    .hero-detail small {
-        grid-column: 2;
-        grid-row: 2;
-
-        margin-top: 3px;
-
-        font-size: clamp(7px, 2.1vw, 9px);
-        line-height: 1.25;
-        letter-spacing: 0.65px;
-    }
-
-    .hero-lunch {
-        max-width: 360px;
-        margin: 8px auto 10px;
-
-        font-size: clamp(11px, 3.15vw, 14px);
-        line-height: 1.25;
-    }
-
-    .hero .scroll-button {
-        min-width: 150px;
-        padding: 10px 28px;
-    }
-}
-
-
-/* Alacsonyabb álló telefonokon a fejléc tömörebb lesz. */
-
-@media (max-width: 700px) and (orientation: portrait) and (max-height: 760px) {
-
-    .hero {
-        padding-top: 24px;
-        padding-bottom: 28px;
-    }
-
-    .hero h1 {
-        font-size: clamp(53px, 17vw, 72px);
-    }
-
-    .hero-script {
-        font-size: clamp(40px, 13vw, 55px);
-    }
-
-    .hero .ornament {
-        margin-block: 5px 7px;
-    }
-
-    .hero-message {
-        font-size: 11px;
-    }
-
-    .hero-details {
-        margin-top: 10px;
-        margin-bottom: 7px;
-    }
-
-    .hero-detail {
-        padding-block: 7px;
-    }
-
-    .hero-lunch {
-        margin-block: 5px 7px;
-    }
-}
-
-/* ========================================
-   VÉGLEGES SZÍN- ÉS TÁVOLSÁG-KORREKCIÓ
-   Csak az álló mobilos nyitóoldalt érinti.
-======================================== */
-
-@media (max-width: 700px) and (orientation: portrait) {
-
-    .hero-kicker,
-    .hero-message,
-    .hero-detail strong,
-    .hero-lunch {
-        color: var(--green-dark);
-    }
-
-    .hero h1 {
-        color: var(--gold);
-    }
-
-    .hero-script {
-        color: var(--green);
-    }
-
-    .hero .ornament {
-        color: var(--gold);
-    }
-
-    .hero .ornament span {
-        background: rgba(173, 130, 56, 0.75);
-    }
-
-    .hero-detail small {
-        color: var(--muted);
-    }
-
-    .hero-details {
-        background: rgba(255, 253, 247, 0.62);
-
-        border-color: rgba(173, 130, 56, 0.26);
-
-        box-shadow: 0 10px 26px rgba(70, 52, 27, 0.10);
-    }
-
-    .hero-detail {
-        padding-top: 12px;
-        padding-bottom: 12px;
-
-        border-bottom-color: rgba(173, 130, 56, 0.30);
-    }
-
-    .hero .scroll-button {
-        margin-top: 8px;
-
-        color: var(--white);
-        background: var(--gold);
-
-        box-shadow: 0 9px 24px rgba(83, 62, 26, 0.28);
-    }
-
-    .hero .scroll-button:hover {
-        background: var(--gold-dark);
     }
 }
