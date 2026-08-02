@@ -1849,3 +1849,27 @@ textarea {
         }
     }
 }
+
+/* ========================================
+   WEBES NÉZET – GOMBOK TÁVOLSÁGA
+   Csak 701 px-nél szélesebb képernyőn érvényes.
+   Minden más megjelenés változatlan marad.
+======================================== */
+
+@media (min-width: 701px) {
+
+    /* Nyitóoldal – „Tovább” gomb */
+    .hero .scroll-button {
+        margin-top: 24px;
+    }
+
+    /* Köszöntőoldal – „A nagy nap részletei” gomb */
+    .welcome-panel .scroll-button {
+        margin-top: 28px;
+    }
+
+    /* Helyszínek oldal – „Visszajelzés” gomb */
+    .program-scroll-button {
+        margin-top: 30px;
+    }
+}
