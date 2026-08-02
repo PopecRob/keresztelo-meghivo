@@ -1860,16 +1860,16 @@ textarea {
 
     /* Nyitóoldal – „Tovább” gomb */
     .hero .scroll-button {
-        margin-top: 24px;
+        margin-top: 46px;
     }
 
     /* Köszöntőoldal – „A nagy nap részletei” gomb */
     .welcome-panel .scroll-button {
-        margin-top: 28px;
+        margin-top: 40px;
     }
 
     /* Helyszínek oldal – „Visszajelzés” gomb */
     .program-scroll-button {
-        margin-top: 30px;
+        margin-top: 42px;
     }
 }
