@@ -2271,7 +2271,7 @@ textarea {
 
     .hero-content > :not(.scroll-button) {
         position: relative;
-        top: 42px;
+        top: 72px;
     }
 }
 
@@ -2282,6 +2282,6 @@ textarea {
 @media (max-width: 700px) and (orientation: portrait) and (max-height: 760px) {
 
     .hero-content > :not(.scroll-button) {
-        top: 28px;
+        top: 48px;
     }
 }
