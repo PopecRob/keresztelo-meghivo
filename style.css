@@ -1454,3 +1454,294 @@ textarea {
         margin-block: 5px 7px;
     }
 }
+
+/* ========================================
+   ÁLLÓ MOBILNÉZET – EGY KÉPERNYŐS OLDALAK
+   Csak a köszöntő és a program oldalt tömöríti.
+   A számítógépes és fekvő mobilnézet változatlan.
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    /* A két köztes oldal pontosan egy telefonképernyő magas. */
+    .welcome-section,
+    .program-section {
+        height: 100svh;
+        min-height: 100svh;
+        padding:
+            max(14px, env(safe-area-inset-top))
+            10px
+            max(14px, env(safe-area-inset-bottom));
+
+        overflow: hidden;
+    }
+
+    /* ---------------- KÖSZÖNTŐ OLDAL ---------------- */
+
+    .welcome-panel {
+        position: relative !important;
+
+        width: min(94%, 430px);
+        max-height: calc(100svh - 28px);
+
+        margin: 0 !important;
+        padding: 18px 16px 16px !important;
+
+        border-radius: 20px;
+    }
+
+    .welcome-panel .section-kicker {
+        margin-bottom: 3px;
+
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .welcome-panel h2 {
+        font-size: clamp(31px, 8.6vw, 39px);
+        line-height: 0.95;
+    }
+
+    .welcome-panel .ornament {
+        margin: 4px auto 7px;
+    }
+
+    .welcome-text {
+        gap: 3px;
+    }
+
+    .welcome-text p {
+        font-size: clamp(14px, 3.8vw, 17px);
+        line-height: 1.23;
+    }
+
+    .welcome-panel blockquote {
+        margin: 8px auto;
+        padding: 7px 8px;
+
+        font-size: clamp(23px, 6.4vw, 30px);
+        line-height: 1.02;
+    }
+
+    .welcome-signature {
+        margin: 7px auto 8px;
+
+        font-size: 14px;
+        line-height: 1.15;
+    }
+
+    .welcome-signature strong {
+        font-size: 20px;
+    }
+
+    .welcome-panel .scroll-button {
+        position: static !important;
+
+        min-width: 150px;
+        margin: 8px auto 0 !important;
+        padding: 8px 20px;
+
+        transform: none !important;
+    }
+
+    .welcome-panel .scroll-button:hover {
+        transform: translateY(-2px) !important;
+    }
+
+    /* ---------------- PROGRAM OLDAL ---------------- */
+
+    .program-container {
+        display: flex;
+        flex-direction: column;
+
+        width: min(96%, 450px);
+        height: 100%;
+    }
+
+    .program-section .compact-heading {
+        flex: 0 0 auto;
+
+        margin-bottom: 7px;
+    }
+
+    .program-section .section-kicker {
+        margin-bottom: 2px;
+
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .program-section .compact-heading h2 {
+        font-size: clamp(29px, 8vw, 36px);
+        line-height: 0.95;
+    }
+
+    .program-section .compact-heading .ornament {
+        margin: 3px auto 5px;
+    }
+
+    .event-cards {
+        flex: 1 1 auto;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+
+        min-height: 0;
+    }
+
+    .event-card {
+        min-height: 0;
+        padding: 10px 12px 9px;
+
+        border-radius: 15px;
+    }
+
+    .event-card::before {
+        height: 3px;
+    }
+
+    .event-card-icon {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 2px;
+
+        font-size: 15px;
+    }
+
+    .event-title p {
+        font-size: 6px;
+        letter-spacing: 1.3px;
+    }
+
+    .event-title h3 {
+        margin: 0 0 4px;
+
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    .event-details {
+        gap: 2px;
+    }
+
+    .event-row {
+        gap: 6px;
+        padding-bottom: 3px;
+    }
+
+    .event-row > span {
+        min-width: 17px;
+
+        font-size: 13px;
+    }
+
+    .event-row small {
+        font-size: 6px;
+        letter-spacing: 0.9px;
+    }
+
+    .event-row strong {
+        font-size: 14px;
+        line-height: 1;
+    }
+
+    .event-row p {
+        margin-top: 1px;
+
+        font-size: 8px;
+        line-height: 1.15;
+    }
+
+    .map-button {
+        margin-top: 4px;
+        padding: 6px 9px;
+
+        font-size: 9px;
+    }
+
+    .program-container > .scroll-button.program-scroll-button {
+        position: static;
+
+        flex: 0 0 auto;
+
+        min-width: 145px;
+        margin: 8px auto 0;
+        padding: 7px 19px;
+
+        transform: none;
+    }
+
+    .program-container > .scroll-button.program-scroll-button:hover {
+        transform: translateY(-2px);
+    }
+}
+
+
+/* Alacsonyabb álló telefonon további tömörítés. */
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
+
+    .welcome-section,
+    .program-section {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .welcome-panel {
+        max-height: calc(100svh - 16px);
+
+        padding: 13px 13px 11px !important;
+    }
+
+    .welcome-panel h2 {
+        font-size: 29px;
+    }
+
+    .welcome-text p {
+        font-size: 13px;
+    }
+
+    .welcome-panel blockquote {
+        margin-block: 5px;
+        padding-block: 5px;
+
+        font-size: 22px;
+    }
+
+    .welcome-signature {
+        margin-block: 5px;
+    }
+
+    .program-section .compact-heading h2 {
+        font-size: 27px;
+    }
+
+    .event-cards {
+        gap: 5px;
+    }
+
+    .event-card {
+        padding: 8px 10px 7px;
+    }
+
+    .event-card-icon {
+        width: 26px;
+        height: 26px;
+
+        font-size: 13px;
+    }
+
+    .event-title h3 {
+        font-size: 18px;
+    }
+
+    .event-row strong {
+        font-size: 13px;
+    }
+
+    .event-row p {
+        font-size: 7px;
+    }
+}
