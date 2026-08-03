@@ -2073,3 +2073,102 @@ textarea {
         padding-block: 8px;
     }
 }
+
+/* ========================================
+   ÁLLÓ MOBILNÉZET – KÖSZÖNTŐ GOMB A KÁRTYA ALATT
+   Csak az álló mobilos köszöntő oldalt érinti.
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .welcome-section {
+        position: relative;
+
+        align-items: center;
+
+        padding:
+            max(14px, env(safe-area-inset-top))
+            10px
+            max(18px, env(safe-area-inset-bottom));
+    }
+
+    .welcome-panel {
+        position: relative !important;
+
+        width: min(94%, 430px);
+        max-height: calc(100svh - 170px);
+
+        margin: 0 0 118px !important;
+        padding: 18px 16px 16px !important;
+
+        overflow: visible;
+    }
+
+    .welcome-text {
+        gap: 9px;
+    }
+
+    .welcome-panel .scroll-button {
+        position: absolute !important;
+
+        left: 50% !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: -104px !important;
+
+        min-width: 190px;
+        margin: 0 !important;
+        padding: 10px 24px;
+
+        transform: translateX(-50%) !important;
+
+        z-index: 3;
+    }
+
+    .welcome-panel .scroll-button:hover {
+        transform: translateX(-50%) translateY(-2px) !important;
+    }
+}
+
+
+/* Keskenyebb álló telefon */
+
+@media (max-width: 390px) and (orientation: portrait) {
+
+    .welcome-panel {
+        width: 96%;
+        margin-bottom: 108px !important;
+    }
+
+    .welcome-panel .scroll-button {
+        bottom: -96px !important;
+
+        min-width: 178px;
+        padding-inline: 20px;
+
+        font-size: 13px;
+    }
+}
+
+
+/* Alacsonyabb álló telefon */
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
+
+    .welcome-panel {
+        max-height: calc(100svh - 145px);
+
+        margin-bottom: 98px !important;
+        padding: 13px 13px 11px !important;
+    }
+
+    .welcome-text {
+        gap: 5px;
+    }
+
+    .welcome-panel .scroll-button {
+        bottom: -86px !important;
+
+        padding-block: 8px;
+    }
+}
