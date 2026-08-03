@@ -2172,3 +2172,90 @@ textarea {
         padding-block: 8px;
     }
 }
+
+/* ========================================
+   KÖSZÖNTŐ OLDAL – MOBILON A GOMB A KÁRTYA ALATT
+   Asztali és fekvő nézetben a jelenlegi gomb marad.
+======================================== */
+
+/* Alapesetben csak a kártyán belüli, asztali gomb látható. */
+.welcome-button-mobile {
+    display: none;
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .welcome-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* A korábbi, kártyán belüli gomb eltűnik álló mobilon. */
+    .welcome-panel .welcome-button-desktop {
+        display: none !important;
+    }
+
+    /* A panel korábbi, gombnak fenntartott alsó térközét megszüntetjük. */
+    .welcome-panel {
+        position: relative !important;
+
+        margin: 0 !important;
+        padding: 18px 16px 16px !important;
+
+        overflow: visible;
+    }
+
+    /* Az új mobilos gomb fizikailag a panel után helyezkedik el. */
+    .welcome-button-mobile {
+        position: static !important;
+
+        display: inline-flex;
+
+        min-width: 190px;
+        margin: 48px auto 0 !important;
+        padding: 10px 24px;
+
+        color: var(--white);
+        background: var(--gold);
+
+        transform: none !important;
+
+        z-index: 3;
+    }
+
+    .welcome-button-mobile:hover {
+        background: var(--gold-dark);
+        transform: translateY(-2px) !important;
+    }
+}
+
+
+/* Keskenyebb álló telefon */
+
+@media (max-width: 390px) and (orientation: portrait) {
+
+    .welcome-button-mobile {
+        min-width: 178px;
+        margin-top: 42px !important;
+        padding-inline: 20px;
+
+        font-size: 13px;
+    }
+}
+
+
+/* Alacsonyabb álló telefon */
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
+
+    .welcome-panel {
+        padding: 13px 13px 11px !important;
+    }
+
+    .welcome-button-mobile {
+        margin-top: 30px !important;
+        padding-block: 8px;
+    }
+}
