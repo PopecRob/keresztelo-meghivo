@@ -1745,3 +1745,331 @@ textarea {
         font-size: 7px;
     }
 }
+
+/* ========================================
+   ÁLLÓ MOBILNÉZET – PRÉMIUM NYITÓOLDAL
+   Csak az álló telefonos nyitóoldalt érinti.
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .hero {
+        position: relative;
+        min-height: 100svh;
+        height: auto;
+        align-items: flex-start;
+
+        padding:
+            max(38px, env(safe-area-inset-top))
+            14px
+            max(28px, env(safe-area-inset-bottom));
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: min(100%, 460px);
+        min-height: calc(
+            100svh
+            - max(38px, env(safe-area-inset-top))
+            - max(28px, env(safe-area-inset-bottom))
+        );
+
+        margin: 0 auto;
+        padding: 0 4px;
+    }
+
+    .hero-details {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+
+        width: min(91%, 372px);
+        margin: 17px auto 10px;
+
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+    .hero-detail {
+        position: relative;
+
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        column-gap: 12px;
+
+        width: calc(100% - 12px);
+        min-height: 68px;
+        padding: 11px 16px 11px 12px;
+
+        color: var(--green-dark);
+        background:
+            linear-gradient(
+                135deg,
+                rgba(255, 253, 248, 0.94),
+                rgba(248, 243, 232, 0.80)
+            );
+
+        border: 1px solid rgba(173, 130, 56, 0.32);
+        border-radius: 18px;
+
+        box-shadow:
+            0 12px 28px rgba(65, 48, 25, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+        text-align: left;
+        backdrop-filter: blur(5px);
+        overflow: hidden;
+    }
+
+    .hero-detail:nth-child(1),
+    .hero-detail:nth-child(3) {
+        justify-self: start;
+    }
+
+    .hero-detail:nth-child(2) {
+        justify-self: end;
+    }
+
+    .hero-detail::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 4px;
+        height: 100%;
+
+        background:
+            linear-gradient(
+                180deg,
+                var(--green),
+                var(--gold)
+            );
+    }
+
+    .hero-detail::after {
+        content: "";
+
+        position: absolute;
+        right: -28px;
+        bottom: -38px;
+
+        width: 92px;
+        height: 92px;
+
+        background: rgba(173, 130, 56, 0.07);
+        border-radius: 50%;
+    }
+
+    .hero-detail-icon {
+        position: relative;
+        z-index: 1;
+
+        grid-column: 1;
+        grid-row: 1 / 3;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+
+        width: 46px;
+        height: 46px;
+        margin: 0;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(244, 235, 218, 0.98),
+                rgba(255, 253, 248, 0.92)
+            );
+
+        border: 1px solid rgba(173, 130, 56, 0.34);
+        border-radius: 50%;
+
+        box-shadow:
+            0 6px 15px rgba(83, 62, 26, 0.13),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+        font-size: 21px;
+        text-align: center;
+    }
+
+    .hero-detail strong {
+        position: relative;
+        z-index: 1;
+
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+
+        color: var(--green-dark);
+
+        font-size: clamp(19px, 5vw, 22px);
+        line-height: 1.05;
+    }
+
+    .hero-detail small {
+        position: relative;
+        z-index: 1;
+
+        grid-column: 2;
+        grid-row: 2;
+
+        margin-top: 3px;
+
+        color: var(--muted);
+
+        font-size: clamp(7px, 2vw, 9px);
+        line-height: 1.25;
+        letter-spacing: 0.7px;
+    }
+
+    .hero-detail-location {
+        grid-template-rows: 1fr;
+    }
+
+    .hero-detail-location .hero-detail-icon {
+        grid-row: 1;
+    }
+
+    .hero-detail-location strong {
+        grid-row: 1;
+        align-self: center;
+
+        font-size: clamp(21px, 5.6vw, 25px);
+    }
+
+    .hero-lunch {
+        margin: 10px auto 0;
+
+        color: var(--green);
+
+        font-size: clamp(11px, 3.1vw, 14px);
+        line-height: 1.25;
+    }
+
+    .hero .scroll-button {
+        position: static;
+
+        min-width: 154px;
+        margin: auto auto 4.5svh;
+        padding: 10px 28px;
+
+        color: var(--white);
+        background:
+            linear-gradient(
+                135deg,
+                var(--gold),
+                var(--gold-dark)
+            );
+
+        border: 1px solid rgba(255, 255, 255, 0.28);
+
+        box-shadow:
+            0 12px 28px rgba(83, 62, 26, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+        transform: none;
+    }
+
+    .hero .scroll-button:hover {
+        background: var(--gold-dark);
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 390px) and (orientation: portrait) {
+
+    .hero-details {
+        width: 96%;
+        gap: 8px;
+    }
+
+    .hero-detail {
+        grid-template-columns: 50px minmax(0, 1fr);
+
+        width: calc(100% - 8px);
+        min-height: 62px;
+        padding: 9px 12px 9px 10px;
+    }
+
+    .hero-detail-icon {
+        width: 41px;
+        height: 41px;
+
+        font-size: 19px;
+    }
+
+    .hero-detail strong {
+        font-size: 18px;
+    }
+
+    .hero-detail-location strong {
+        font-size: 21px;
+    }
+
+    .hero .scroll-button {
+        margin-bottom: 3svh;
+    }
+}
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 760px) {
+
+    .hero {
+        padding-top: 22px;
+        padding-bottom: 18px;
+    }
+
+    .hero-content {
+        min-height: calc(100svh - 40px);
+    }
+
+    .hero-details {
+        gap: 6px;
+        margin-top: 9px;
+        margin-bottom: 5px;
+    }
+
+    .hero-detail {
+        min-height: 54px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    .hero-detail-icon {
+        width: 38px;
+        height: 38px;
+
+        font-size: 17px;
+    }
+
+    .hero-detail strong {
+        font-size: 17px;
+    }
+
+    .hero-detail small {
+        font-size: 6px;
+    }
+
+    .hero-detail-location strong {
+        font-size: 20px;
+    }
+
+    .hero-lunch {
+        margin-top: 5px;
+    }
+
+    .hero .scroll-button {
+        margin-bottom: 1.5svh;
+        padding-block: 8px;
+    }
+}
