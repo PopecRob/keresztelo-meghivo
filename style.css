@@ -2259,3 +2259,29 @@ textarea {
         padding-block: 8px;
     }
 }
+
+/* ========================================
+   ÁLLÓ MOBILNÉZET – NYITÓOLDALI TARTALOM LEJJEBB
+   Csak az álló mobilos nyitóoldal szöveges és
+   kártyás részét mozgatja lejjebb.
+   A Tovább gomb helye nem változik.
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .hero-content > :not(.scroll-button) {
+        position: relative;
+        top: 42px;
+    }
+}
+
+
+/* Alacsonyabb álló telefonon kisebb eltolás,
+   hogy minden elem biztosan elférjen. */
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 760px) {
+
+    .hero-content > :not(.scroll-button) {
+        top: 28px;
+    }
+}
