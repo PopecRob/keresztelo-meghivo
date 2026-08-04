@@ -2381,3 +2381,36 @@ textarea {
         background-position: 0% 0;
     }
 }
+
+/* ========================================
+   NYITÓOLDAL – PRÉMIUM BEVEZETŐ FELIRAT
+   Csak a „Szeretettel meghívunk” sort érinti.
+======================================== */
+
+.hero-kicker {
+    color: #9a7434;
+
+    letter-spacing: clamp(7px, 0.7vw, 11px);
+
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.78),
+        0 2px 7px rgba(86, 65, 31, 0.16);
+
+    opacity: 0.96;
+}
+
+
+/* Álló mobilon finomabban, hogy ne legyen túl széles. */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .hero-kicker {
+        color: #9a7434;
+
+        letter-spacing: clamp(3.2px, 1.05vw, 5.2px);
+
+        text-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.82),
+            0 2px 6px rgba(86, 65, 31, 0.14);
+    }
+}
