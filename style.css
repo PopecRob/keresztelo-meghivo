@@ -3337,3 +3337,47 @@ textarea {
         margin-left: 16px;
     }
 }
+
+/* ========================================
+   ASZTALI NÉZET – KÖSZÖNTŐ GOMB VISSZAÁLLÍTÁSA
+   Csak 701 px felett érvényes.
+======================================== */
+
+@media (min-width: 701px) {
+
+    /* Az asztali gomb biztosan látható marad. */
+    #welcome .welcome-button-desktop {
+        display: inline-flex !important;
+
+        position: absolute !important;
+        left: 50% !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: -105px !important;
+
+        min-width: 190px;
+        margin: 0 !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        transform: translateX(-50%) !important;
+
+        z-index: 20 !important;
+        pointer-events: auto !important;
+    }
+
+    #welcome .welcome-button-desktop:hover {
+        transform: translateX(-50%) translateY(-2px) !important;
+    }
+
+    /* A mobilos gomb asztali nézetben továbbra is rejtve marad. */
+    #welcome .welcome-button-mobile {
+        display: none !important;
+    }
+
+    /* A panel ne vágja le a rajta kívül elhelyezett gombot. */
+    #welcome .welcome-panel {
+        overflow: visible !important;
+    }
+}
