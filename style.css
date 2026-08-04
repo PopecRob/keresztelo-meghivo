@@ -2575,3 +2575,29 @@ textarea {
         animation: none !important;
     }
 }
+
+/* ========================================
+   ÁLLÓ MOBIL – KÖSZÖNTŐ GOMB VÉGLEGESEN LEJJEBB
+   Csak az álló mobilos köszöntőoldali gombot érinti.
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .welcome-section > .welcome-button-mobile {
+        margin-top: 88px !important;
+    }
+}
+
+@media (max-width: 390px) and (orientation: portrait) {
+
+    .welcome-section > .welcome-button-mobile {
+        margin-top: 76px !important;
+    }
+}
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
+
+    .welcome-section > .welcome-button-mobile {
+        margin-top: 58px !important;
+    }
+}
