@@ -3094,38 +3094,24 @@ textarea {
 }
 
 /* ========================================
-   KÖSZÖNTŐ OLDAL – BIZTONSÁGOS 3. ÖTLET
-   Kizárólag a #welcome oldalon lévő három
-   bekezdést módosítja.
+   KÖSZÖNTŐ OLDAL – OLVASHATÓBB KÉZÍRÁSOS SZÖVEG
+   A díszítő elemek eltávolítva.
+   Csak a három bekezdés betűtípusa változik.
 ======================================== */
 
 #welcome .welcome-text > p {
-    position: relative;
+    padding-top: 0;
 
-    padding-top: 17px;
-
-    font-family: "Allura", cursive;
+    font-family: "Kalam", cursive;
     font-weight: 400;
-    letter-spacing: 0.12px;
+    letter-spacing: 0;
 }
 
-/* Arany díszjel a három bekezdés fölött */
+
+/* A korábbi díszítő jelek teljes eltávolítása */
 #welcome .welcome-text > p::before {
-    content: "❦";
-
-    position: absolute;
-    top: 0;
-    left: 50%;
-
-    color: var(--gold);
-
-    font-family: Georgia, serif;
-    font-size: 15px;
-    line-height: 1;
-
-    transform: translateX(-50%);
-
-    opacity: 0.86;
+    content: none !important;
+    display: none !important;
 }
 
 
@@ -3133,16 +3119,9 @@ textarea {
 @media (max-width: 700px) and (orientation: portrait) {
 
     #welcome .welcome-text > p {
-        padding-top: 16px;
-
-        font-family: "Allura", cursive;
-        font-size: clamp(22px, 6.1vw, 28px);
-        line-height: 1.21;
-    }
-
-    #welcome .welcome-text > p::before {
-        top: 0;
-        font-size: 14px;
+        font-family: "Kalam", cursive;
+        font-size: clamp(20px, 5.5vw, 25px);
+        line-height: 1.32;
     }
 }
 
@@ -3151,8 +3130,8 @@ textarea {
 @media (max-width: 390px) and (orientation: portrait) {
 
     #welcome .welcome-text > p {
-        font-size: clamp(21px, 5.8vw, 26px);
-        line-height: 1.19;
+        font-size: clamp(19px, 5.2vw, 23px);
+        line-height: 1.30;
     }
 }
 
@@ -3161,13 +3140,7 @@ textarea {
 @media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
 
     #welcome .welcome-text > p {
-        padding-top: 12px;
-
-        font-size: clamp(19px, 5.1vw, 23px);
-        line-height: 1.15;
-    }
-
-    #welcome .welcome-text > p::before {
-        font-size: 12px;
+        font-size: clamp(17px, 4.7vw, 21px);
+        line-height: 1.26;
     }
 }
