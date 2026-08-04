@@ -3144,3 +3144,41 @@ textarea {
         line-height: 1.30;
     }
 }
+
+
+/* ========================================
+   ASZTALI NÉZET – NAGYOBB KÖSZÖNTŐ KÁRTYA
+   Csak 701px felett érvényes.
+======================================== */
+
+@media (min-width: 701px){
+
+    #welcome .welcome-panel{
+        width:min(92vw,1100px);
+        max-width:1100px;
+
+        padding:72px 78px 64px;
+
+        transform:scale(1.18);
+        transform-origin:center top;
+
+        margin:30px auto 120px;
+    }
+
+    #welcome .welcome-panel h2{
+        font-size:4rem;
+    }
+
+    #welcome .welcome-text p{
+        font-size:2rem;
+        line-height:1.55;
+    }
+
+    #welcome .welcome-signature{
+        font-size:1.45rem;
+    }
+
+    #welcome .welcome-signature strong{
+        font-size:2.5rem;
+    }
+}
