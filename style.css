@@ -3381,3 +3381,39 @@ textarea {
         overflow: visible !important;
     }
 }
+
+
+/* ========================================
+   ASZTALI NÉZET – GOMB A KÁRTYA ALATT
+======================================== */
+
+@media (min-width:701px){
+
+    #welcome .welcome-panel{
+        overflow:visible !important;
+        padding-bottom:90px !important;
+    }
+
+    #welcome .welcome-button-desktop{
+        display:inline-flex !important;
+        position:absolute !important;
+
+        left:50% !important;
+        top:100% !important;
+        bottom:auto !important;
+
+        transform:translate(-50%,22px) !important;
+
+        opacity:1 !important;
+        visibility:visible !important;
+        z-index:999 !important;
+    }
+
+    #welcome .welcome-button-desktop:hover{
+        transform:translate(-50%,18px) !important;
+    }
+
+    #welcome .welcome-button-mobile{
+        display:none !important;
+    }
+}
