@@ -2782,3 +2782,39 @@ textarea {
         inset 0 1px 0 rgba(255, 255, 255, 0.92),
         inset 0 -1px 0 rgba(173, 130, 56, 0.06);
 }
+
+/* ========================================
+   KÖSZÖNTŐ OLDAL – JÓL LÁTHATÓBB PAPÍRHATÁS
+   Csak a köszöntő kártyát érinti.
+======================================== */
+
+.welcome-panel {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 254, 249, 0.98) 0%,
+            rgba(248, 240, 226, 0.95) 100%
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(119, 91, 46, 0.035) 0,
+            rgba(119, 91, 46, 0.035) 1px,
+            transparent 1px,
+            transparent 3px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.16) 0,
+            rgba(255, 255, 255, 0.16) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    border-color: rgba(173, 130, 56, 0.34);
+
+    box-shadow:
+        0 24px 62px rgba(65, 48, 25, 0.18),
+        0 8px 18px rgba(65, 48, 25, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.98),
+        inset 0 -1px 0 rgba(173, 130, 56, 0.10);
+}
