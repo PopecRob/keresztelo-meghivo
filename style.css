@@ -3417,3 +3417,59 @@ textarea {
         display:none !important;
     }
 }
+
+/* ========================================
+   KÖSZÖNTŐ OLDAL – ASZTALI GOMB BIZTOS JAVÍTÁSA
+   Az asztali nézetben a panelen belüli gomb rejtve,
+   a panel után lévő gomb pedig fixen az oldal alján látható.
+======================================== */
+
+@media (min-width: 701px) {
+
+    #welcome {
+        position: relative !important;
+    }
+
+    /* A panelen belüli régi asztali gombot elrejtjük,
+       így nem tudja levágni vagy eltakarni a nagyobb kártya. */
+    #welcome .welcome-button-desktop {
+        display: none !important;
+    }
+
+    /* A panel után lévő gombot használjuk asztali nézetben is. */
+    #welcome > .welcome-button-mobile {
+        display: inline-flex !important;
+
+        position: absolute !important;
+        left: 50% !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: 34px !important;
+
+        min-width: 190px;
+        margin: 0 !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        transform: translateX(-50%) !important;
+
+        z-index: 9999 !important;
+        pointer-events: auto !important;
+    }
+
+    #welcome > .welcome-button-mobile:hover {
+        transform: translateX(-50%) translateY(-2px) !important;
+    }
+}
+
+
+/* Alacsonyabb laptopképernyőn kissé feljebb kerül,
+   hogy biztosan ne lógjon ki az oldal aljáról. */
+
+@media (min-width: 701px) and (max-height: 760px) {
+
+    #welcome > .welcome-button-mobile {
+        bottom: 22px !important;
+    }
+}
