@@ -2271,7 +2271,7 @@ textarea {
 
     .hero-content > :not(.scroll-button) {
         position: relative;
-        top: 117px;
+        top: 72px;
     }
 }
 
@@ -2282,6 +2282,43 @@ textarea {
 @media (max-width: 700px) and (orientation: portrait) and (max-height: 760px) {
 
     .hero-content > :not(.scroll-button) {
-        top: 78px;
+        top: 48px;
+    }
+}
+
+/* ========================================
+   ÁLLÓ MOBIL – NYITÓOLDALI TARTALOM VÉGLEGES ELTOLÁSA
+   Csak a szöveges és paneles részt mozgatja.
+   A Tovább gomb helye változatlan marad.
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .hero-content > :not(.scroll-button) {
+        position: relative !important;
+        top: 140px !important;
+    }
+}
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 760px) {
+
+    .hero-content > :not(.scroll-button) {
+        top: 92px !important;
+    }
+}
+
+/* ========================================
+   ÁLLÓ MOBIL – KÁRTYÁK EGY VONALBAN
+   Csak a nyitóoldali három információs kártyát érinti.
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .hero-detail,
+    .hero-detail:nth-child(1),
+    .hero-detail:nth-child(2),
+    .hero-detail:nth-child(3) {
+        width: 100%;
+        justify-self: stretch;
     }
 }
