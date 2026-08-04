@@ -2637,3 +2637,103 @@ textarea {
         bottom: 6svh !important;
     }
 }
+
+/* ========================================
+   ÁLLÓ MOBIL – KÖSZÖNTŐ SZÖVEG NAGYOBB BETŰKKEL
+   Csak a megszólítás alatti szöveget és az aláírást érinti.
+   Minden más változatlan marad.
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    /* A teljes kártya feljebb kerül, és több helyet kap lefelé. */
+    .welcome-panel {
+        transform: translateY(-34px);
+
+        width: min(96%, 440px);
+        max-height: calc(100svh - 110px);
+
+        padding: 20px 18px 18px !important;
+    }
+
+    /* A három bekezdés marad külön, csak nagyobb és olvashatóbb lesz. */
+    .welcome-text {
+        gap: 12px;
+    }
+
+    .welcome-text p {
+        font-size: clamp(17px, 4.7vw, 21px);
+        line-height: 1.34;
+    }
+
+    /* Az aláírás is nagyobb lesz. */
+    .welcome-signature {
+        margin-top: 12px;
+        margin-bottom: 10px;
+
+        font-size: 16px;
+        line-height: 1.25;
+    }
+
+    .welcome-signature strong {
+        font-size: 23px;
+    }
+}
+
+
+/* Keskenyebb álló telefon */
+
+@media (max-width: 390px) and (orientation: portrait) {
+
+    .welcome-panel {
+        width: 97%;
+        transform: translateY(-28px);
+
+        padding-inline: 15px !important;
+    }
+
+    .welcome-text p {
+        font-size: clamp(16px, 4.55vw, 19px);
+    }
+
+    .welcome-signature {
+        font-size: 15px;
+    }
+
+    .welcome-signature strong {
+        font-size: 21px;
+    }
+}
+
+
+/* Alacsonyabb álló telefon */
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
+
+    .welcome-panel {
+        transform: translateY(-20px);
+
+        max-height: calc(100svh - 82px);
+        padding: 14px 14px 12px !important;
+    }
+
+    .welcome-text {
+        gap: 8px;
+    }
+
+    .welcome-text p {
+        font-size: clamp(15px, 4.2vw, 18px);
+        line-height: 1.27;
+    }
+
+    .welcome-signature {
+        margin-top: 8px;
+        margin-bottom: 6px;
+
+        font-size: 14px;
+    }
+
+    .welcome-signature strong {
+        font-size: 20px;
+    }
+}
