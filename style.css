@@ -3159,26 +3159,26 @@ textarea {
 
         padding:72px 78px 64px;
 
-        transform:scale(1.18);
+        transform:scale(1.08);
         transform-origin:center top;
 
         margin:30px auto 120px;
     }
 
     #welcome .welcome-panel h2{
-        font-size:4rem;
+        font-size:3.7rem;
     }
 
     #welcome .welcome-text p{
-        font-size:2rem;
+        font-size:1.85rem;
         line-height:1.55;
     }
 
     #welcome .welcome-signature{
-        font-size:1.45rem;
+        font-size:1.35rem;
     }
 
     #welcome .welcome-signature strong{
-        font-size:2.5rem;
+        font-size:2.3rem;
     }
 }
