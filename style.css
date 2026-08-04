@@ -2324,60 +2324,106 @@ textarea {
 }
 
 /* ========================================
-   NIMRÓD – EGYSZERI ARANY CSILLANÁS
-   Csak a nyitóoldali névre vonatkozik.
+   NYITÓOLDAL – LASSÚ, FILMES HÁTTÉRMOZGÁS
+   Csak a nyitóoldal hátterét mozgatja.
+   A szöveg, a kártyák és a gombok helye változatlan.
 ======================================== */
 
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+.hero {
+    position: relative;
+    isolation: isolate;
 
-    .hero h1 {
-        color: var(--gold);
-
-        background-image:
-            linear-gradient(
-                110deg,
-                var(--gold) 0%,
-                var(--gold) 42%,
-                #f8e6ad 48%,
-                #fff8da 50%,
-                #d9ad58 53%,
-                var(--gold) 59%,
-                var(--gold) 100%
-            );
-
-        background-size: 320% 100%;
-        background-position: 100% 0;
-
-        -webkit-background-clip: text;
-        background-clip: text;
-
-        -webkit-text-fill-color: transparent;
-
-        animation:
-            nimrodGoldShine
-            1.25s
-            cubic-bezier(0.22, 0.61, 0.36, 1)
-            0.55s
-            1
-            both;
-    }
+    background-image: none;
 }
 
-@keyframes nimrodGoldShine {
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: -3%;
+    z-index: -2;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 253, 247, 0.10),
+            rgba(255, 253, 247, 0.10)
+        ),
+        url("images/background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform: scale(1);
+    transform-origin: center 42%;
+
+    animation:
+        heroBackgroundBreathing
+        28s
+        ease-in-out
+        infinite
+        alternate;
+
+    will-change: transform;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 12%,
+            rgba(255, 240, 190, 0.08),
+            transparent 42%
+        );
+}
+
+@keyframes heroBackgroundBreathing {
 
     0% {
-        background-position: 100% 0;
+        transform:
+            scale(1)
+            translateY(0);
     }
 
     100% {
-        background-position: 0% 0;
+        transform:
+            scale(1.045)
+            translateY(0.8%);
     }
 }
 
+
+/* Álló mobilon a külön portré háttér mozog. */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .hero::before {
+        background-image:
+            linear-gradient(
+                rgba(255, 253, 247, 0.06),
+                rgba(255, 253, 247, 0.06)
+            ),
+            url("images/background-portrait.png");
+
+        background-position: center;
+        transform-origin: center 44%;
+    }
+}
+
+
+/* Aki kikapcsolja az animációkat, annál statikus marad. */
+
 @media (prefers-reduced-motion: reduce) {
 
-    .hero h1 {
+    .hero::before {
         animation: none !important;
-        background-position: 0% 0;
+        transform: scale(1.02);
     }
 }
