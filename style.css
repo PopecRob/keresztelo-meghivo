@@ -2965,3 +2965,130 @@ textarea {
         bottom: -14px;
     }
 }
+
+/* ========================================
+   KÖSZÖNTŐ OLDAL – PAPÍRTEKERCS, ERŐS JAVÍTÁS
+   A korábbi kártyaforma helyett jól látható tekercs.
+======================================== */
+
+.welcome-panel {
+    position: relative !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8e7 0%,
+            #f6e4bf 52%,
+            #eed4a4 100%
+        ) !important;
+
+    border: 1px solid rgba(126, 80, 27, 0.48) !important;
+    border-radius: 4px !important;
+
+    clip-path:
+        polygon(
+            2% 1%,
+            98% 0,
+            100% 4%,
+            99% 96%,
+            97% 100%,
+            3% 99%,
+            0 96%,
+            1% 4%
+        );
+
+    box-shadow:
+        0 26px 65px rgba(62, 39, 14, 0.26),
+        0 10px 22px rgba(62, 39, 14, 0.13),
+        inset 0 0 34px rgba(132, 85, 28, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.82) !important;
+
+    overflow: visible !important;
+    isolation: isolate;
+}
+
+/* Minden szöveges elem a tekercsszélek fölött marad. */
+.welcome-panel > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Felső hengerelt papírszél */
+.welcome-panel::before {
+    content: "" !important;
+
+    position: absolute !important;
+    left: -2.5% !important;
+    right: -2.5% !important;
+    top: -21px !important;
+
+    height: 34px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff3d7 0%,
+            #efd6a6 42%,
+            #c99c58 100%
+        ) !important;
+
+    border: 1px solid rgba(112, 69, 22, 0.52) !important;
+    border-radius: 50% / 60% !important;
+
+    box-shadow:
+        0 7px 14px rgba(69, 42, 15, 0.24),
+        inset 0 5px 8px rgba(255, 255, 255, 0.48),
+        inset 0 -6px 9px rgba(99, 58, 17, 0.18) !important;
+
+    z-index: 3 !important;
+    pointer-events: none;
+}
+
+/* Alsó hengerelt papírszél */
+.welcome-panel::after {
+    content: "" !important;
+
+    position: absolute !important;
+    left: -2.5% !important;
+    right: -2.5% !important;
+    bottom: -21px !important;
+
+    height: 34px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #c99c58 0%,
+            #efd6a6 55%,
+            #fff3d7 100%
+        ) !important;
+
+    border: 1px solid rgba(112, 69, 22, 0.52) !important;
+    border-radius: 50% / 60% !important;
+
+    box-shadow:
+        0 9px 17px rgba(69, 42, 15, 0.27),
+        inset 0 6px 9px rgba(99, 58, 17, 0.15),
+        inset 0 -5px 8px rgba(255, 255, 255, 0.42) !important;
+
+    z-index: 3 !important;
+    pointer-events: none;
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .welcome-panel {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+
+    .welcome-panel::before {
+        top: -18px !important;
+        height: 30px !important;
+    }
+
+    .welcome-panel::after {
+        bottom: -18px !important;
+        height: 30px !important;
+    }
+}
