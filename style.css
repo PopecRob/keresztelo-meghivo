@@ -3102,7 +3102,7 @@ textarea {
 #welcome .welcome-text > p {
     padding-top: 0;
 
-    font-family: "Kalam", cursive;
+    font-family: "Allura", cursive;
     font-weight: 400;
     letter-spacing: 0;
 }
@@ -3119,7 +3119,7 @@ textarea {
 @media (max-width: 700px) and (orientation: portrait) {
 
     #welcome .welcome-text > p {
-        font-family: "Kalam", cursive;
+        font-family: "Allura", cursive;
         font-size: clamp(20px, 5.5vw, 25px);
         line-height: 1.32;
     }
