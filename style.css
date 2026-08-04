@@ -2584,20 +2584,56 @@ textarea {
 @media (max-width: 700px) and (orientation: portrait) {
 
     .welcome-section > .welcome-button-mobile {
-        margin-top: 88px !important;
+        margin-top: 170px !important;
     }
 }
 
 @media (max-width: 390px) and (orientation: portrait) {
 
     .welcome-section > .welcome-button-mobile {
-        margin-top: 76px !important;
+        margin-top: 150px !important;
     }
 }
 
 @media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
 
     .welcome-section > .welcome-button-mobile {
-        margin-top: 58px !important;
+        margin-top: 120px !important;
+    }
+}
+
+/* ========================================
+   ÁLLÓ MOBIL – KÖSZÖNTŐ GOMB FIXEN AZ OLDAL ALJÁN
+   A korábbi margós eltolás helyett valódi pozicionálás.
+======================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .welcome-section {
+        position: relative !important;
+    }
+
+    .welcome-section > .welcome-button-mobile {
+        position: absolute !important;
+
+        left: 50% !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: 4.5svh !important;
+
+        margin: 0 !important;
+
+        transform: translateX(-50%) !important;
+    }
+
+    .welcome-section > .welcome-button-mobile:hover {
+        transform: translateX(-50%) translateY(-2px) !important;
+    }
+}
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
+
+    .welcome-section > .welcome-button-mobile {
+        bottom: 1.5svh !important;
     }
 }
