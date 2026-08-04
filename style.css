@@ -2214,7 +2214,7 @@ textarea {
         display: inline-flex;
 
         min-width: 190px;
-        margin: 48px auto 0 !important;
+        margin: 78px auto 0 !important;
         padding: 10px 24px;
 
         color: var(--white);
@@ -2238,7 +2238,7 @@ textarea {
 
     .welcome-button-mobile {
         min-width: 178px;
-        margin-top: 42px !important;
+        margin-top: 68px !important;
         padding-inline: 20px;
 
         font-size: 13px;
@@ -2255,7 +2255,7 @@ textarea {
     }
 
     .welcome-button-mobile {
-        margin-top: 30px !important;
+        margin-top: 52px !important;
         padding-block: 8px;
     }
 }
