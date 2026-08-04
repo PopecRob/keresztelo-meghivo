@@ -2357,7 +2357,7 @@ textarea {
             nimrodGoldShine
             1.35s
             cubic-bezier(0.22, 0.61, 0.36, 1)
-            0.82s
+            1.20s
             1
             both;
     }
@@ -2475,31 +2475,31 @@ textarea {
 }
 
 .hero-kicker {
-    animation-delay: 0.08s;
+    animation-delay: 0.20s;
 }
 
 .hero-script {
-    animation-delay: 0.62s;
+    animation-delay: 0.90s;
 }
 
 .hero .ornament {
-    animation-delay: 0.82s;
+    animation-delay: 1.50s;
 }
 
 .hero-message {
-    animation-delay: 1.00s;
+    animation-delay: 2.00s;
 }
 
 .hero-details {
-    animation-delay: 1.24s;
+    animation-delay: 2.50s;
 }
 
 .hero-lunch {
-    animation-delay: 1.46s;
+    animation-delay: 3.20s;
 }
 
 .hero > .hero-content > .scroll-button {
-    animation-delay: 1.68s;
+    animation-delay: 4.40s;
 }
 
 
@@ -2512,16 +2512,16 @@ textarea {
 
         animation:
             heroElementReveal
-            0.82s
+            0.90s
             ease-out
-            0.34s
+            0.90s
             1
             both,
 
             nimrodGoldShine
             1.35s
             cubic-bezier(0.22, 0.61, 0.36, 1)
-            0.82s
+            1.20s
             1
             both;
     }
@@ -2538,9 +2538,9 @@ textarea {
 
         animation:
             heroElementReveal
-            0.82s
+            0.90s
             ease-out
-            0.34s
+            0.90s
             1
             both;
     }
