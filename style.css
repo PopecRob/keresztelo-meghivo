@@ -3352,3 +3352,41 @@ textarea {
         margin-left: 14px;
     }
 }
+
+
+/* ========================================
+   FINOM IDÉZŐJELEK – JAVÍTVA
+======================================== */
+
+#welcome .welcome-text > p:first-child{
+    position:relative;
+}
+
+#welcome .welcome-text > p:first-child::before{
+    content:"“";
+    display:inline;
+    color:inherit;
+    font-family:"Cormorant Garamond",serif;
+    font-size:1.05em;
+    font-weight:600;
+    margin-right:8px;
+    opacity:.55;
+}
+
+#welcome .welcome-text > p:last-child::after{
+    content:" ”";
+    display:inline;
+    color:inherit;
+    font-family:"Cormorant Garamond",serif;
+    font-size:1.05em;
+    font-weight:600;
+    margin-left:12px;
+    opacity:.55;
+}
+
+@media (max-width:700px){
+    #welcome .welcome-text > p:first-child::before,
+    #welcome .welcome-text > p:last-child::after{
+        font-size:1em;
+    }
+}
