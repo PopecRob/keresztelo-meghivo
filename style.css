@@ -3299,3 +3299,68 @@ textarea {
         font-size: 2.3rem;
     }
 }
+
+/* ========================================
+   KÖSZÖNTŐ OLDAL – 5. ÖTLET
+   Halvány, nagyméretű idézőjel a szöveg mögött.
+   Csak a köszöntő oldal szövegrészét érinti.
+======================================== */
+
+#welcome .welcome-text {
+    position: relative;
+    isolation: isolate;
+}
+
+#welcome .welcome-text::before {
+    content: "“";
+
+    position: absolute;
+    top: -34px;
+    left: 50%;
+
+    color: rgba(173, 130, 56, 0.10);
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(120px, 14vw, 190px);
+    font-weight: 600;
+    line-height: 1;
+
+    transform: translateX(-50%);
+
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* Álló mobilnézet */
+@media (max-width: 700px) and (orientation: portrait) {
+
+    #welcome .welcome-text::before {
+        top: -24px;
+
+        font-size: clamp(105px, 30vw, 150px);
+    }
+}
+
+
+/* Keskenyebb álló telefon */
+@media (max-width: 390px) and (orientation: portrait) {
+
+    #welcome .welcome-text::before {
+        top: -18px;
+
+        font-size: clamp(92px, 28vw, 128px);
+    }
+}
+
+
+/* Alacsonyabb álló telefon */
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
+
+    #welcome .welcome-text::before {
+        top: -14px;
+
+        font-size: clamp(80px, 24vw, 110px);
+    }
+}
