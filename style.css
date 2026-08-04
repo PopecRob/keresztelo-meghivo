@@ -2450,3 +2450,128 @@ textarea {
             inset 0 -1px 0 rgba(173, 130, 56, 0.10);
     }
 }
+
+/* ========================================
+   NYITÓOLDAL – FINOM, LÉPCSŐZETES MEGJELENÉS
+   A dizájn és az elemek helye nem változik.
+   Csak az első betöltéskor fut le egyszer.
+======================================== */
+
+.hero-kicker,
+.hero-script,
+.hero .ornament,
+.hero-message,
+.hero-details,
+.hero-lunch,
+.hero > .hero-content > .scroll-button {
+    opacity: 0;
+
+    animation:
+        heroElementReveal
+        0.52s
+        ease-out
+        1
+        both;
+}
+
+.hero-kicker {
+    animation-delay: 0.05s;
+}
+
+.hero-script {
+    animation-delay: 0.38s;
+}
+
+.hero .ornament {
+    animation-delay: 0.52s;
+}
+
+.hero-message {
+    animation-delay: 0.64s;
+}
+
+.hero-details {
+    animation-delay: 0.80s;
+}
+
+.hero-lunch {
+    animation-delay: 0.94s;
+}
+
+.hero > .hero-content > .scroll-button {
+    animation-delay: 1.08s;
+}
+
+
+/* A NIMRÓD felirat áttűnése és a meglévő arany csillanás együtt fut. */
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+
+    .hero h1 {
+        opacity: 0;
+
+        animation:
+            heroElementReveal
+            0.55s
+            ease-out
+            0.20s
+            1
+            both,
+
+            nimrodGoldShine
+            1.25s
+            cubic-bezier(0.22, 0.61, 0.36, 1)
+            0.55s
+            1
+            both;
+    }
+}
+
+
+/* Ha a böngésző nem támogatja a szöveges háttérvágást,
+   a név akkor is finoman megjelenik. */
+
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+
+    .hero h1 {
+        opacity: 0;
+
+        animation:
+            heroElementReveal
+            0.55s
+            ease-out
+            0.20s
+            1
+            both;
+    }
+}
+
+
+@keyframes heroElementReveal {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Mozgáscsökkentett rendszerbeállításnál minden azonnal látszik. */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-kicker,
+    .hero h1,
+    .hero-script,
+    .hero .ornament,
+    .hero-message,
+    .hero-details,
+    .hero-lunch,
+    .hero > .hero-content > .scroll-button {
+        opacity: 1 !important;
+        animation: none !important;
+    }
+}
