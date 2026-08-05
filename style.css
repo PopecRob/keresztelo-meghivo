@@ -64,7 +64,6 @@ textarea {
     background-repeat: no-repeat;
 }
 
-
 /* ========================================
    KÖZÖS ELEMEK
 ======================================== */
@@ -169,7 +168,6 @@ textarea {
         transform: translateY(4px);
     }
 }
-
 
 /* ========================================
    NYITÓOLDAL
@@ -301,7 +299,6 @@ textarea {
     text-transform: uppercase;
 }
 
-
 /* ========================================
    KÖSZÖNTŐ OLDAL
 ======================================== */
@@ -392,7 +389,6 @@ textarea {
     font-size: 25px;
     font-weight: 600;
 }
-
 
 /* ========================================
    PROGRAM
@@ -597,7 +593,6 @@ textarea {
     width: max-content;
     margin: 14px auto 0;
 }
-
 
 /* ========================================
    RSVP
@@ -834,7 +829,6 @@ textarea {
     color: #a33a32;
 }
 
-
 /* ========================================
    KÖSZÖNŐ / SAJNÁLKOZÓ ABLAK
 ======================================== */
@@ -955,7 +949,6 @@ textarea {
     background: var(--decline-dark);
 }
 
-
 /* ========================================
    ALACSONY LAPTOPKÉPERNYŐ
 ======================================== */
@@ -1021,7 +1014,6 @@ textarea {
         padding: 18px 25px;
     }
 }
-
 
 /* ========================================
    TELEFON
@@ -1139,79 +1131,21 @@ textarea {
 }
 
 /* ========================================
-   WEBES NÉZET – VÉGLEGES GOMB- ÉS PANELBEÁLLÍTÁS
-   A fájl végén van, ezért az alacsony laptopos
-   szabályok sem tudják felülírni.
+   ASZTALI GOMBPOZÍCIÓK
 ======================================== */
 
 @media (min-width: 701px) {
 
-    /* Nyitóoldal */
     .hero .scroll-button {
         position: relative;
         top: 75px;
     }
 
-    /* Köszöntő oldal:
-       a fehér panel alja rövidebb,
-       a gomb pedig külön, a panel alatt marad */
-    .welcome-panel {
-        position: relative;
-
-        padding-bottom: 0 !important;
-        margin-bottom: 115px;
-    }
-
-    .welcome-panel .scroll-button {
-        position: absolute;
-        left: 50%;
-        bottom: -92px;
-
-        margin: 0;
-
-        transform: translateX(-50%);
-    }
-
-    .welcome-panel .scroll-button:hover {
-        transform: translateX(-50%) translateY(-2px);
-    }
-
-    /* Program oldal */
     .program-container > .scroll-button.program-scroll-button {
         position: relative;
         top: 75px;
 
         display: flex;
-    }
-}
-
-/* ========================================
-   KÖSZÖNTŐ PANEL – VÉGLEGES JAVÍTÁS
-======================================== */
-
-@media (min-width: 701px) {
-
-    .welcome-panel {
-        position: relative !important;
-
-        padding-bottom: 0 !important;
-        margin-bottom: 125px !important;
-    }
-
-    .welcome-panel .scroll-button {
-        position: absolute !important;
-        left: 50% !important;
-        right: auto !important;
-        top: auto !important;
-        bottom: -105px !important;
-
-        margin: 0 !important;
-
-        transform: translateX(-50%) !important;
-    }
-
-    .welcome-panel .scroll-button:hover {
-        transform: translateX(-50%) translateY(-2px) !important;
     }
 }
 
@@ -1678,7 +1612,6 @@ textarea {
     }
 }
 
-
 /* Alacsonyabb álló telefonon további tömörítés. */
 
 @media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
@@ -2075,105 +2008,6 @@ textarea {
 }
 
 /* ========================================
-   ÁLLÓ MOBILNÉZET – KÖSZÖNTŐ GOMB A KÁRTYA ALATT
-   Csak az álló mobilos köszöntő oldalt érinti.
-======================================== */
-
-@media (max-width: 700px) and (orientation: portrait) {
-
-    .welcome-section {
-        position: relative;
-
-        align-items: center;
-
-        padding:
-            max(14px, env(safe-area-inset-top))
-            10px
-            max(18px, env(safe-area-inset-bottom));
-    }
-
-    .welcome-panel {
-        position: relative !important;
-
-        width: min(94%, 430px);
-        max-height: calc(100svh - 170px);
-
-        margin: 0 0 118px !important;
-        padding: 18px 16px 16px !important;
-
-        overflow: visible;
-    }
-
-    .welcome-text {
-        gap: 9px;
-    }
-
-    .welcome-panel .scroll-button {
-        position: absolute !important;
-
-        left: 50% !important;
-        top: auto !important;
-        right: auto !important;
-        bottom: -104px !important;
-
-        min-width: 190px;
-        margin: 0 !important;
-        padding: 10px 24px;
-
-        transform: translateX(-50%) !important;
-
-        z-index: 3;
-    }
-
-    .welcome-panel .scroll-button:hover {
-        transform: translateX(-50%) translateY(-2px) !important;
-    }
-}
-
-
-/* Keskenyebb álló telefon */
-
-@media (max-width: 390px) and (orientation: portrait) {
-
-    .welcome-panel {
-        width: 96%;
-        margin-bottom: 108px !important;
-    }
-
-    .welcome-panel .scroll-button {
-        bottom: -96px !important;
-
-        min-width: 178px;
-        padding-inline: 20px;
-
-        font-size: 13px;
-    }
-}
-
-
-/* Alacsonyabb álló telefon */
-
-@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
-
-    .welcome-panel {
-        max-height: calc(100svh - 145px);
-
-        margin-bottom: 98px !important;
-        padding: 13px 13px 11px !important;
-    }
-
-    .welcome-text {
-        gap: 5px;
-    }
-
-    .welcome-panel .scroll-button {
-        bottom: -86px !important;
-
-        padding-block: 8px;
-    }
-}
-
-/* ========================================
    KÖSZÖNTŐ OLDAL – MOBILON A GOMB A KÁRTYA ALATT
    Asztali és fekvő nézetben a jelenlegi gomb marad.
 ======================================== */
@@ -2231,7 +2065,6 @@ textarea {
     }
 }
 
-
 /* Keskenyebb álló telefon */
 
 @media (max-width: 390px) and (orientation: portrait) {
@@ -2245,7 +2078,6 @@ textarea {
     }
 }
 
-
 /* Alacsonyabb álló telefon */
 
 @media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
@@ -2257,32 +2089,6 @@ textarea {
     .welcome-button-mobile {
         margin-top: 52px !important;
         padding-block: 8px;
-    }
-}
-
-/* ========================================
-   ÁLLÓ MOBILNÉZET – NYITÓOLDALI TARTALOM LEJJEBB
-   Csak az álló mobilos nyitóoldal szöveges és
-   kártyás részét mozgatja lejjebb.
-   A Tovább gomb helye nem változik.
-======================================== */
-
-@media (max-width: 700px) and (orientation: portrait) {
-
-    .hero-content > :not(.scroll-button) {
-        position: relative;
-        top: 72px;
-    }
-}
-
-
-/* Alacsonyabb álló telefonon kisebb eltolás,
-   hogy minden elem biztosan elférjen. */
-
-@media (max-width: 700px) and (orientation: portrait) and (max-height: 760px) {
-
-    .hero-content > :not(.scroll-button) {
-        top: 48px;
     }
 }
 
@@ -2502,7 +2308,6 @@ textarea {
     animation-delay: 4.40s;
 }
 
-
 /* A NIMRÓD felirat áttűnése és a meglévő arany csillanás együtt fut. */
 
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
@@ -2527,7 +2332,6 @@ textarea {
     }
 }
 
-
 /* Ha a böngésző nem támogatja a szöveges háttérvágást,
    a név akkor is finoman megjelenik. */
 
@@ -2546,7 +2350,6 @@ textarea {
     }
 }
 
-
 @keyframes heroElementReveal {
 
     from {
@@ -2557,7 +2360,6 @@ textarea {
         opacity: 1;
     }
 }
-
 
 /* Mozgáscsökkentett rendszerbeállításnál minden azonnal látszik. */
 
@@ -2573,32 +2375,6 @@ textarea {
     .hero > .hero-content > .scroll-button {
         opacity: 1 !important;
         animation: none !important;
-    }
-}
-
-/* ========================================
-   ÁLLÓ MOBIL – KÖSZÖNTŐ GOMB VÉGLEGESEN LEJJEBB
-   Csak az álló mobilos köszöntőoldali gombot érinti.
-======================================== */
-
-@media (max-width: 700px) and (orientation: portrait) {
-
-    .welcome-section > .welcome-button-mobile {
-        margin-top: 170px !important;
-    }
-}
-
-@media (max-width: 390px) and (orientation: portrait) {
-
-    .welcome-section > .welcome-button-mobile {
-        margin-top: 150px !important;
-    }
-}
-
-@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
-
-    .welcome-section > .welcome-button-mobile {
-        margin-top: 120px !important;
     }
 }
 
@@ -2680,7 +2456,6 @@ textarea {
     }
 }
 
-
 /* Keskenyebb álló telefon */
 
 @media (max-width: 390px) and (orientation: portrait) {
@@ -2704,7 +2479,6 @@ textarea {
         font-size: 21px;
     }
 }
-
 
 /* Alacsonyabb álló telefon */
 
@@ -2748,222 +2522,6 @@ textarea {
     font-family: "Allura", cursive;
     font-weight: 400;
     letter-spacing: 0.2px;
-}
-
-/* ========================================
-   KÖSZÖNTŐ OLDAL – FINOM PAPÍRHATÁS
-   Csak a köszöntő kártya felületét érinti.
-   Minden más változatlan marad.
-======================================== */
-
-.welcome-panel {
-    background:
-        linear-gradient(
-            rgba(255, 253, 247, 0.91),
-            rgba(255, 253, 247, 0.91)
-        ),
-        repeating-linear-gradient(
-            0deg,
-            rgba(120, 94, 52, 0.018) 0,
-            rgba(120, 94, 52, 0.018) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            rgba(120, 94, 52, 0.012) 0,
-            rgba(120, 94, 52, 0.012) 1px,
-            transparent 1px,
-            transparent 5px
-        );
-
-    box-shadow:
-        0 22px 58px rgba(65, 48, 25, 0.16),
-        inset 0 1px 0 rgba(255, 255, 255, 0.92),
-        inset 0 -1px 0 rgba(173, 130, 56, 0.06);
-}
-
-/* ========================================
-   KÖSZÖNTŐ OLDAL – JÓL LÁTHATÓBB PAPÍRHATÁS
-   Csak a köszöntő kártyát érinti.
-======================================== */
-
-.welcome-panel {
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255, 254, 249, 0.98) 0%,
-            rgba(248, 240, 226, 0.95) 100%
-        ),
-        repeating-linear-gradient(
-            0deg,
-            rgba(119, 91, 46, 0.035) 0,
-            rgba(119, 91, 46, 0.035) 1px,
-            transparent 1px,
-            transparent 3px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.16) 0,
-            rgba(255, 255, 255, 0.16) 1px,
-            transparent 1px,
-            transparent 4px
-        );
-
-    border-color: rgba(173, 130, 56, 0.34);
-
-    box-shadow:
-        0 24px 62px rgba(65, 48, 25, 0.18),
-        0 8px 18px rgba(65, 48, 25, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.98),
-        inset 0 -1px 0 rgba(173, 130, 56, 0.10);
-}
-
-/* ========================================
-   KÖSZÖNTŐ OLDAL – PAPÍRTEKERCS HATÁS
-   Csak a köszöntő kártyát érinti.
-   A tartalom, betűméretek és gomb helye változatlan.
-======================================== */
-
-.welcome-panel {
-    position: relative;
-
-    background:
-        radial-gradient(
-            circle at 24% 14%,
-            rgba(255, 255, 255, 0.38),
-            transparent 24%
-        ),
-        radial-gradient(
-            circle at 76% 82%,
-            rgba(150, 104, 42, 0.06),
-            transparent 30%
-        ),
-        repeating-linear-gradient(
-            0deg,
-            rgba(116, 80, 34, 0.028) 0,
-            rgba(116, 80, 34, 0.028) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-        linear-gradient(
-            180deg,
-            #fff8e7 0%,
-            #f8e9c9 48%,
-            #f2dfba 100%
-        );
-
-    border: 1px solid rgba(139, 92, 35, 0.34);
-    border-radius: 18px 18px 14px 14px;
-
-    box-shadow:
-        0 24px 58px rgba(65, 43, 18, 0.22),
-        0 8px 18px rgba(65, 43, 18, 0.10),
-        inset 0 1px 0 rgba(255, 255, 255, 0.84),
-        inset 0 -1px 0 rgba(118, 76, 27, 0.12);
-
-    overflow: visible;
-}
-
-
-/* Felső feltekert papírszél */
-
-.welcome-panel::before {
-    content: "";
-
-    position: absolute;
-    left: 5%;
-    right: 5%;
-    top: -17px;
-
-    height: 28px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #f7e5bf 0%,
-            #ead1a1 52%,
-            #d8b77d 100%
-        );
-
-    border: 1px solid rgba(125, 81, 30, 0.34);
-    border-radius: 50% / 55%;
-
-    box-shadow:
-        0 5px 10px rgba(77, 50, 20, 0.18),
-        inset 0 4px 6px rgba(255, 255, 255, 0.42),
-        inset 0 -5px 6px rgba(112, 72, 25, 0.12);
-
-    z-index: -1;
-}
-
-
-/* Alsó feltekert papírszél */
-
-.welcome-panel::after {
-    content: "";
-
-    position: absolute;
-    left: 5%;
-    right: 5%;
-    bottom: -17px;
-
-    height: 28px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #d8b77d 0%,
-            #ead1a1 48%,
-            #f7e5bf 100%
-        );
-
-    border: 1px solid rgba(125, 81, 30, 0.34);
-    border-radius: 50% / 55%;
-
-    box-shadow:
-        0 7px 13px rgba(77, 50, 20, 0.20),
-        inset 0 5px 6px rgba(112, 72, 25, 0.11),
-        inset 0 -4px 6px rgba(255, 255, 255, 0.36);
-
-    z-index: -1;
-}
-
-
-/* A szöveg a papír tónusához igazodik. */
-
-.welcome-text p {
-    color: #4d4031;
-}
-
-.welcome-signature {
-    color: #4c3d2b;
-}
-
-
-/* Álló mobilon kissé keskenyebb tekercsszélek */
-
-@media (max-width: 700px) and (orientation: portrait) {
-
-    .welcome-panel {
-        border-radius: 16px 16px 12px 12px;
-    }
-
-    .welcome-panel::before,
-    .welcome-panel::after {
-        left: 4%;
-        right: 4%;
-
-        height: 24px;
-    }
-
-    .welcome-panel::before {
-        top: -14px;
-    }
-
-    .welcome-panel::after {
-        bottom: -14px;
-    }
 }
 
 /* ========================================
@@ -3107,13 +2665,11 @@ textarea {
     letter-spacing: 0;
 }
 
-
 /* A korábbi díszítő jelek teljes eltávolítása */
 #welcome .welcome-text > p::before {
     content: none !important;
     display: none !important;
 }
-
 
 /* Álló mobilnézet */
 @media (max-width: 700px) and (orientation: portrait) {
@@ -3125,7 +2681,6 @@ textarea {
     }
 }
 
-
 /* Keskenyebb álló telefon */
 @media (max-width: 390px) and (orientation: portrait) {
 
@@ -3135,51 +2690,12 @@ textarea {
     }
 }
 
-
 /* Alacsonyabb álló telefon */
 @media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
 
     #welcome .welcome-text > p {
         font-size: clamp(19px, 5.2vw, 23px);
         line-height: 1.30;
-    }
-}
-
-
-/* ========================================
-   ASZTALI NÉZET – NAGYOBB KÖSZÖNTŐ KÁRTYA
-   Csak 701px felett érvényes.
-======================================== */
-
-@media (min-width: 701px){
-
-    #welcome .welcome-panel{
-        width:min(92vw,1100px);
-        max-width:1100px;
-
-        padding:72px 78px 64px;
-
-        transform:scale(1.08);
-        transform-origin:center top;
-
-        margin:30px auto 120px;
-    }
-
-    #welcome .welcome-panel h2{
-        font-size:3.7rem;
-    }
-
-    #welcome .welcome-text p{
-        font-size:1.85rem;
-        line-height:1.55;
-    }
-
-    #welcome .welcome-signature{
-        font-size:1.35rem;
-    }
-
-    #welcome .welcome-signature strong{
-        font-size:2.3rem;
     }
 }
 
@@ -3236,7 +2752,6 @@ textarea {
     letter-spacing: 0.1px;
 }
 
-
 /* Álló mobilnézet */
 @media (max-width: 700px) and (orientation: portrait) {
 
@@ -3253,7 +2768,6 @@ textarea {
     }
 }
 
-
 /* Keskenyebb álló telefon */
 @media (max-width: 390px) and (orientation: portrait) {
 
@@ -3265,7 +2779,6 @@ textarea {
         font-size: clamp(24px, 6.6vw, 29px);
     }
 }
-
 
 /* Alacsonyabb álló telefon */
 @media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
@@ -3282,7 +2795,6 @@ textarea {
         font-size: clamp(22px, 6vw, 27px);
     }
 }
-
 
 /* Asztali nézet */
 @media (min-width: 701px) {
@@ -3339,86 +2851,6 @@ textarea {
 }
 
 /* ========================================
-   ASZTALI NÉZET – KÖSZÖNTŐ GOMB VISSZAÁLLÍTÁSA
-   Csak 701 px felett érvényes.
-======================================== */
-
-@media (min-width: 701px) {
-
-    /* Az asztali gomb biztosan látható marad. */
-    #welcome .welcome-button-desktop {
-        display: inline-flex !important;
-
-        position: absolute !important;
-        left: 50% !important;
-        right: auto !important;
-        top: auto !important;
-        bottom: -105px !important;
-
-        min-width: 190px;
-        margin: 0 !important;
-
-        opacity: 1 !important;
-        visibility: visible !important;
-
-        transform: translateX(-50%) !important;
-
-        z-index: 20 !important;
-        pointer-events: auto !important;
-    }
-
-    #welcome .welcome-button-desktop:hover {
-        transform: translateX(-50%) translateY(-2px) !important;
-    }
-
-    /* A mobilos gomb asztali nézetben továbbra is rejtve marad. */
-    #welcome .welcome-button-mobile {
-        display: none !important;
-    }
-
-    /* A panel ne vágja le a rajta kívül elhelyezett gombot. */
-    #welcome .welcome-panel {
-        overflow: visible !important;
-    }
-}
-
-
-/* ========================================
-   ASZTALI NÉZET – GOMB A KÁRTYA ALATT
-======================================== */
-
-@media (min-width:701px){
-
-    #welcome .welcome-panel{
-        overflow:visible !important;
-        padding-bottom:90px !important;
-    }
-
-    #welcome .welcome-button-desktop{
-        display:inline-flex !important;
-        position:absolute !important;
-
-        left:50% !important;
-        top:100% !important;
-        bottom:auto !important;
-
-        transform:translate(-50%,22px) !important;
-
-        opacity:1 !important;
-        visibility:visible !important;
-        z-index:999 !important;
-    }
-
-    #welcome .welcome-button-desktop:hover{
-        transform:translate(-50%,18px) !important;
-    }
-
-    #welcome .welcome-button-mobile{
-        display:none !important;
-    }
-}
-
-/* ========================================
    KÖSZÖNTŐ OLDAL – ASZTALI GOMB BIZTOS JAVÍTÁSA
    Az asztali nézetben a panelen belüli gomb rejtve,
    a panel után lévő gomb pedig fixen az oldal alján látható.
@@ -3463,7 +2895,6 @@ textarea {
     }
 }
 
-
 /* Alacsonyabb laptopképernyőn kissé feljebb kerül,
    hogy biztosan ne lógjon ki az oldal aljáról. */
 
@@ -3471,85 +2902,6 @@ textarea {
 
     #welcome > .welcome-button-mobile {
         bottom: 22px !important;
-    }
-}
-
-/* ========================================
-   ASZTALI NÉZET – KÖSZÖNTŐ KÁRTYA KISEBBRE
-   A működő gomb változatlan marad.
-======================================== */
-
-@media (min-width: 701px) {
-
-    #welcome .welcome-panel {
-        width: min(86vw, 950px) !important;
-        max-width: 950px !important;
-
-        padding:
-            52px
-            60px
-            48px !important;
-
-        transform: none !important;
-        transform-origin: center top !important;
-
-        margin:
-            10px
-            auto
-            90px !important;
-    }
-
-    #welcome .welcome-panel h2 {
-        font-size: 3.3rem !important;
-    }
-
-    #welcome .welcome-text > p {
-        font-size: 1.65rem !important;
-        line-height: 1.5 !important;
-    }
-
-    #welcome .welcome-signature {
-        font-size: 1.65rem !important;
-        line-height: 1.3 !important;
-    }
-
-    #welcome .welcome-signature strong {
-        font-size: 2.1rem !important;
-    }
-}
-
-
-/* Alacsonyabb laptopképernyőn arányosan tömörebb. */
-
-@media (min-width: 701px) and (max-height: 760px) {
-
-    #welcome .welcome-panel {
-        width: min(84vw, 900px) !important;
-        max-width: 900px !important;
-
-        padding:
-            38px
-            52px
-            36px !important;
-
-        margin-bottom: 76px !important;
-    }
-
-    #welcome .welcome-panel h2 {
-        font-size: 3rem !important;
-    }
-
-    #welcome .welcome-text > p {
-        font-size: 1.45rem !important;
-        line-height: 1.42 !important;
-    }
-
-    #welcome .welcome-signature {
-        font-size: 1.45rem !important;
-    }
-
-    #welcome .welcome-signature strong {
-        font-size: 1.95rem !important;
     }
 }
 
@@ -3600,7 +2952,6 @@ textarea {
         font-size: 2.4rem !important;
     }
 }
-
 
 /* Alacsonyabb laptopképernyőn is kb. 15%-os növelés,
    de a képernyőn belül tartva. */
