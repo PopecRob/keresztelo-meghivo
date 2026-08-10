@@ -3076,3 +3076,39 @@ textarea {
 #program .event-card::after {
     box-shadow: none !important;
 }
+
+/* =========================================================
+   PROGRAM OLDAL – MOBIL KERET FINOMÍTÁS
+   Desktop változatlan.
+   Mobilon a kártya külső négyszögletes pereme eltűnik,
+   az ágkeret vizuálisan kifut a háttérbe.
+========================================================= */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    #program .event-card {
+        /* A border-image mögötti alapdoboz ne rajzoljon
+           külön világos téglalapot. */
+        background-color: transparent !important;
+
+        /* A keretet kissé kifelé engedjük, hogy a világos
+           PNG-perem a háttér növényzetére fusson rá. */
+        border-image-outset: 5px !important;
+
+        /* Nincs négyszögletes kártyaárnyék. */
+        box-shadow: none !important;
+    }
+
+    /* A kártyák közti világos téglalap-hatás csökkentése. */
+    #program .event-cards {
+        background: transparent !important;
+    }
+
+    /* A két kártya széle mobilon egy hajszállal szélesebb,
+       így a keret közelebb kerül a háttérhez. */
+    #program .event-card {
+        width: calc(100% + 10px) !important;
+        margin-left: -5px !important;
+        margin-right: -5px !important;
+    }
+}
