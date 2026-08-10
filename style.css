@@ -2436,8 +2436,8 @@ textarea {
     /* A címsor finoman lejjebb kerül. */
     #program .compact-heading {
         position: relative;
-        top: 20px;
-        margin-bottom: 27px;
+        top: 40px;
+        margin-bottom: 47px;
     }
 
     /* A két kártya ne nyúljon automatikusan túl magasra. */
@@ -2485,8 +2485,8 @@ textarea {
 @media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
 
     #program .compact-heading {
-        top: 14px;
-        margin-bottom: 20px;
+        top: 28px;
+        margin-bottom: 34px;
     }
 
     #program .event-card {
