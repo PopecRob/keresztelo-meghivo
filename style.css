@@ -2571,3 +2571,24 @@ textarea {
         top: 14px !important;
     }
 }
+
+/* =========================================================
+   PROGRAM OLDAL – FELSŐ KIS FELIRAT LEJJEBB
+   Csak az "A NAGY NAP RÉSZLETEI" sort mozgatja.
+========================================================= */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    #program .program-container .compact-heading > .section-kicker {
+        position: relative !important;
+        top: 24px !important;
+        transform: none !important;
+    }
+}
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
+
+    #program .program-container .compact-heading > .section-kicker {
+        top: 20px !important;
+    }
+}
