@@ -2422,9 +2422,8 @@ textarea {
 }
 
 /* =========================================================
-   PROGRAM OLDAL – ÁLLÓ MOBIL FINOMHANGOLÁS
-   A fejléc lejjebb kerül, a két eseménykártya kompaktabb.
-   Minden más oldal és nézet változatlan.
+   PROGRAM OLDAL – ÁLLÓ MOBIL VÉGLEGES BEÁLLÍTÁS
+   A jelenleg jóváhagyott elrendezés egyetlen tiszta blokkban.
 ========================================================= */
 
 @media (max-width: 700px) and (orientation: portrait) {
@@ -2433,14 +2432,30 @@ textarea {
         justify-content: flex-start;
     }
 
-    /* A címsor finoman lejjebb kerül. */
     #program .compact-heading {
         position: relative;
         top: 40px;
         margin-bottom: 47px;
     }
 
-    /* A két kártya ne nyúljon automatikusan túl magasra. */
+    #program .program-container .compact-heading > .section-kicker {
+        position: relative !important;
+        top: 24px !important;
+        line-height: 1.05 !important;
+        transform: none !important;
+    }
+
+    #program .compact-heading h2 {
+        position: relative !important;
+        top: 20px !important;
+    }
+
+    #program .compact-heading .ornament {
+        position: relative !important;
+        top: 20px !important;
+        margin-bottom: 30px !important;
+    }
+
     #program .event-cards {
         flex: 0 0 auto;
         grid-template-rows: auto auto;
@@ -2475,7 +2490,6 @@ textarea {
         margin-top: 4px;
     }
 
-    /* A Visszajelzés gomb továbbra is az oldal alján marad. */
     #program .program-scroll-button {
         margin-top: auto;
         margin-bottom: 4px;
@@ -2489,6 +2503,19 @@ textarea {
         margin-bottom: 34px;
     }
 
+    #program .program-container .compact-heading > .section-kicker {
+        top: 20px !important;
+    }
+
+    #program .compact-heading h2,
+    #program .compact-heading .ornament {
+        top: 14px !important;
+    }
+
+    #program .compact-heading .ornament {
+        margin-bottom: 22px !important;
+    }
+
     #program .event-card {
         padding-top: 7px;
         padding-bottom: 6px;
@@ -2497,98 +2524,5 @@ textarea {
     #program .event-row {
         padding-top: 1px;
         padding-bottom: 2px;
-    }
-}
-
-/* =========================================================
-   PROGRAM OLDAL – MOBIL FEJLÉC 03
-   Csak a két fejlécsor finomhangolása.
-========================================================= */
-
-@media (max-width: 700px) and (orientation: portrait) {
-
-    /* "A NAGY NAP RÉSZLETEI" – kétszeres betűméret */
-    #program .compact-heading .section-kicker {
-        line-height: 1.05 !important;
-    }
-
-    /* "Helyszínek és időpontok" – még lejjebb */
-    #program .compact-heading h2 {
-        position: relative !important;
-        top: 30px !important;
-    }
-
-    /* Az ornament is kövesse a főcímet, hogy ne csússzon rá */
-    #program .compact-heading .ornament {
-        position: relative !important;
-        top: 30px !important;
-        margin-bottom: 30px !important;
-    }
-}
-
-@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
-#program .compact-heading h2,
-    #program .compact-heading .ornament {
-        top: 22px !important;
-    }
-
-    #program .compact-heading .ornament {
-        margin-bottom: 22px !important;
-    }
-}
-
-/* =========================================================
-   PROGRAM OLDAL – MOBIL FEJLÉC TÁVOLSÁG
-   A felső sor eredeti méretű, közelebb kerül az alsó sorhoz.
-   Az alsó sor helyzete változatlan.
-========================================================= */
-
-@media (max-width: 700px) and (orientation: portrait) {
-
-    #program .compact-heading .section-kicker {
-        position: relative !important;
-        top: 10px !important;
-    }
-
-    #program .compact-heading h2 {
-        top: 20px !important;
-    }
-
-    #program .compact-heading .ornament {
-        top: 20px !important;
-        margin-bottom: 30px !important;
-    }
-}
-
-@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
-
-    #program .compact-heading .section-kicker {
-        top: 8px !important;
-    }
-
-    #program .compact-heading h2,
-    #program .compact-heading .ornament {
-        top: 14px !important;
-    }
-}
-
-/* =========================================================
-   PROGRAM OLDAL – FELSŐ KIS FELIRAT LEJJEBB
-   Csak az "A NAGY NAP RÉSZLETEI" sort mozgatja.
-========================================================= */
-
-@media (max-width: 700px) and (orientation: portrait) {
-
-    #program .program-container .compact-heading > .section-kicker {
-        position: relative !important;
-        top: 24px !important;
-        transform: none !important;
-    }
-}
-
-@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
-
-    #program .program-container .compact-heading > .section-kicker {
-        top: 20px !important;
     }
 }
