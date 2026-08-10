@@ -2592,3 +2592,236 @@ textarea {
         top: 6px !important;
     }
 }
+
+/* =========================================================
+   PROGRAM OLDAL – DZSUNGEL / FAÁG KÁRTYÁK
+   KIZÁRÓLAG a "Nagy nap részletei" oldal két kártyájára.
+   Más oldalhoz nem nyúl.
+========================================================= */
+
+#program .event-card {
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at 8% 92%,
+            rgba(82, 100, 72, 0.10) 0 5%,
+            transparent 16%
+        ),
+        radial-gradient(
+            circle at 92% 8%,
+            rgba(173, 130, 56, 0.09) 0 5%,
+            transparent 17%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 253, 247, 0.97),
+            rgba(247, 239, 222, 0.95)
+        );
+
+    border: 1px solid rgba(111, 79, 47, 0.28);
+    border-radius: 24px;
+
+    box-shadow:
+        0 18px 38px rgba(69, 49, 29, 0.16),
+        inset 0 0 38px rgba(173, 130, 56, 0.045);
+
+    overflow: visible;
+}
+
+
+/* A korábbi felső zöld-arany csík helyett körbefutó "ágkeret". */
+
+#program .event-card::before {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+
+    inset: -5px;
+
+    height: auto;
+    width: auto;
+
+    border-radius: 26px;
+
+    background:
+        /* felső ág */
+        repeating-linear-gradient(
+            103deg,
+            #4b3625 0 9px,
+            #7c5d3b 9px 17px,
+            #5a422b 17px 24px,
+            #957148 24px 31px
+        ) top / calc(100% - 20px) 7px no-repeat,
+
+        /* alsó ág */
+        repeating-linear-gradient(
+            77deg,
+            #5a4029 0 10px,
+            #8b6942 10px 18px,
+            #4b3523 18px 25px,
+            #a07a4c 25px 32px
+        ) bottom / calc(100% - 20px) 7px no-repeat,
+
+        /* bal oldali ág */
+        repeating-linear-gradient(
+            12deg,
+            #4b3625 0 9px,
+            #80603d 9px 17px,
+            #5b432c 17px 24px,
+            #987248 24px 31px
+        ) left / 7px calc(100% - 20px) no-repeat,
+
+        /* jobb oldali ág */
+        repeating-linear-gradient(
+            -12deg,
+            #523925 0 10px,
+            #8f6a43 10px 18px,
+            #4d3725 18px 25px,
+            #9d764b 25px 32px
+        ) right / 7px calc(100% - 20px) no-repeat;
+
+    filter:
+        drop-shadow(0 2px 1px rgba(53, 38, 23, 0.26))
+        drop-shadow(0 5px 7px rgba(53, 38, 23, 0.10));
+}
+
+
+/* Apró levélfoltok a sarkokban, hogy a keret ne csak "fa" legyen. */
+
+#program .event-card::after {
+    content: "";
+
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+
+    inset: -10px;
+
+    border-radius: 28px;
+
+    background:
+        radial-gradient(
+            ellipse at 11px 9px,
+            rgba(76, 103, 57, 0.92) 0 30%,
+            transparent 33%
+        ) 10px 8px / 28px 20px no-repeat,
+
+        radial-gradient(
+            ellipse at 17px 11px,
+            rgba(111, 132, 73, 0.78) 0 29%,
+            transparent 32%
+        ) 29px 17px / 30px 21px no-repeat,
+
+        radial-gradient(
+            ellipse at 11px 9px,
+            rgba(76, 103, 57, 0.90) 0 30%,
+            transparent 33%
+        ) calc(100% - 36px) 10px / 28px 20px no-repeat,
+
+        radial-gradient(
+            ellipse at 16px 10px,
+            rgba(118, 138, 79, 0.75) 0 29%,
+            transparent 32%
+        ) calc(100% - 59px) 26px / 30px 21px no-repeat,
+
+        radial-gradient(
+            ellipse at 11px 9px,
+            rgba(82, 108, 60, 0.86) 0 30%,
+            transparent 33%
+        ) 14px calc(100% - 31px) / 28px 20px no-repeat,
+
+        radial-gradient(
+            ellipse at 11px 9px,
+            rgba(82, 108, 60, 0.88) 0 30%,
+            transparent 33%
+        ) calc(100% - 40px) calc(100% - 32px) / 28px 20px no-repeat;
+}
+
+
+/* A tartalom mindig a díszkeret fölött maradjon. */
+
+#program .event-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* A kör alakú helyszínikon kap egy természetesebb "fa medál" hatást. */
+
+#program .event-card-icon {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 252, 244, 0.98),
+            rgba(236, 223, 197, 0.96)
+        );
+
+    border: 2px solid rgba(146, 104, 60, 0.52);
+
+    box-shadow:
+        0 4px 10px rgba(62, 44, 25, 0.16),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.48);
+}
+
+
+/* A kártyák belső elválasztói visszafogottabb, természetes színt kapnak. */
+
+#program .event-row {
+    border-bottom-color: rgba(122, 94, 59, 0.20);
+}
+
+
+/* Mobilon vékonyabb ágkeret, hogy ne vegyen el helyet a tartalomtól. */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    #program .event-card {
+        border-radius: 17px;
+    }
+
+    #program .event-card::before {
+        inset: -4px;
+        border-radius: 19px;
+
+        background:
+            repeating-linear-gradient(
+                103deg,
+                #4b3625 0 8px,
+                #7c5d3b 8px 15px,
+                #5a422b 15px 21px,
+                #957148 21px 27px
+            ) top / calc(100% - 16px) 5px no-repeat,
+
+            repeating-linear-gradient(
+                77deg,
+                #5a4029 0 8px,
+                #8b6942 8px 15px,
+                #4b3523 15px 21px,
+                #a07a4c 21px 27px
+            ) bottom / calc(100% - 16px) 5px no-repeat,
+
+            repeating-linear-gradient(
+                12deg,
+                #4b3625 0 8px,
+                #80603d 8px 15px,
+                #5b432c 15px 21px,
+                #987248 21px 27px
+            ) left / 5px calc(100% - 16px) no-repeat,
+
+            repeating-linear-gradient(
+                -12deg,
+                #523925 0 8px,
+                #8f6a43 8px 15px,
+                #4d3725 15px 21px,
+                #9d764b 21px 27px
+            ) right / 5px calc(100% - 16px) no-repeat;
+    }
+
+    #program .event-card::after {
+        inset: -8px;
+        opacity: 0.88;
+    }
+}
