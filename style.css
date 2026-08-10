@@ -2594,234 +2594,119 @@ textarea {
 }
 
 /* =========================================================
-   PROGRAM OLDAL – DZSUNGEL / FAÁG KÁRTYÁK
-   KIZÁRÓLAG a "Nagy nap részletei" oldal két kártyájára.
-   Más oldalhoz nem nyúl.
+   PROGRAM OLDAL – VALÓDI FAÁG / LIÁN KÁRTYÁK
+   KIZÁRÓLAG a "Nagy nap részletei" két kártyájára.
 ========================================================= */
 
 #program .event-card {
+    position: relative;
     isolation: isolate;
 
     background:
-        radial-gradient(
-            circle at 8% 92%,
-            rgba(82, 100, 72, 0.10) 0 5%,
-            transparent 16%
-        ),
-        radial-gradient(
-            circle at 92% 8%,
-            rgba(173, 130, 56, 0.09) 0 5%,
-            transparent 17%
-        ),
         linear-gradient(
             145deg,
-            rgba(255, 253, 247, 0.97),
-            rgba(247, 239, 222, 0.95)
+            rgba(255, 252, 244, 0.98),
+            rgba(246, 237, 218, 0.96)
         );
 
-    border: 1px solid rgba(111, 79, 47, 0.28);
-    border-radius: 24px;
+    border: 1px solid rgba(132, 96, 58, 0.18);
+    border-radius: 22px;
 
     box-shadow:
-        0 18px 38px rgba(69, 49, 29, 0.16),
-        inset 0 0 38px rgba(173, 130, 56, 0.045);
+        0 18px 42px rgba(62, 43, 24, 0.14),
+        inset 0 0 34px rgba(126, 96, 58, 0.035);
 
     overflow: visible;
 }
 
-
-/* A korábbi felső zöld-arany csík helyett körbefutó "ágkeret". */
-
+/* A teljes, kézzel rajzolt faág/lián keret. */
 #program .event-card::before {
     content: "";
-
     position: absolute;
     z-index: 0;
     pointer-events: none;
 
-    inset: -5px;
+    inset: -12px;
 
-    height: auto;
-    width: auto;
-
-    border-radius: 26px;
-
-    background:
-        /* felső ág */
-        repeating-linear-gradient(
-            103deg,
-            #4b3625 0 9px,
-            #7c5d3b 9px 17px,
-            #5a422b 17px 24px,
-            #957148 24px 31px
-        ) top / calc(100% - 20px) 7px no-repeat,
-
-        /* alsó ág */
-        repeating-linear-gradient(
-            77deg,
-            #5a4029 0 10px,
-            #8b6942 10px 18px,
-            #4b3523 18px 25px,
-            #a07a4c 25px 32px
-        ) bottom / calc(100% - 20px) 7px no-repeat,
-
-        /* bal oldali ág */
-        repeating-linear-gradient(
-            12deg,
-            #4b3625 0 9px,
-            #80603d 9px 17px,
-            #5b432c 17px 24px,
-            #987248 24px 31px
-        ) left / 7px calc(100% - 20px) no-repeat,
-
-        /* jobb oldali ág */
-        repeating-linear-gradient(
-            -12deg,
-            #523925 0 10px,
-            #8f6a43 10px 18px,
-            #4d3725 18px 25px,
-            #9d764b 25px 32px
-        ) right / 7px calc(100% - 20px) no-repeat;
-
-    filter:
-        drop-shadow(0 2px 1px rgba(53, 38, 23, 0.26))
-        drop-shadow(0 5px 7px rgba(53, 38, 23, 0.10));
-}
-
-
-/* Apró levélfoltok a sarkokban, hogy a keret ne csak "fa" legyen. */
-
-#program .event-card::after {
-    content: "";
-
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-
-    inset: -10px;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%20620%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cfilter%20id%3D%22s%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%224%22%20stdDeviation%3D%223%22%20flood-color%3D%22%233b2a1d%22%20flood-opacity%3D%22.22%22%2F%3E%0A%20%20%20%20%3C%2Ffilter%3E%0A%20%20%3C%2Fdefs%3E%0A%0A%20%20%3Cg%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20filter%3D%22url%28%23s%29%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M45%2030%20C180%208%20315%2045%20500%2024%20C690%206%20815%2043%20955%2028%22%20stroke%3D%22%236b4a2d%22%20stroke-width%3D%2218%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M55%2036%20C180%2055%20335%207%20500%2038%20C680%2070%20825%208%20945%2040%22%20stroke%3D%22%239a7246%22%20stroke-width%3D%228%22%2F%3E%0A%0A%20%20%20%20%3Cpath%20d%3D%22M45%20590%20C200%20612%20345%20572%20500%20596%20C680%20616%20820%20574%20955%20592%22%20stroke%3D%22%236b4a2d%22%20stroke-width%3D%2218%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M55%20584%20C200%20560%20330%20612%20500%20580%20C690%20548%20815%20612%20945%20578%22%20stroke%3D%22%239a7246%22%20stroke-width%3D%228%22%2F%3E%0A%0A%20%20%20%20%3Cpath%20d%3D%22M30%2048%20C10%20180%2052%20310%2028%20470%20C18%20520%2024%20560%2038%20585%22%20stroke%3D%22%2367462b%22%20stroke-width%3D%2218%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M40%2054%20C62%20195%2016%20320%2045%20470%20C55%20520%2050%20555%2046%20578%22%20stroke%3D%22%23987044%22%20stroke-width%3D%228%22%2F%3E%0A%0A%20%20%20%20%3Cpath%20d%3D%22M970%2048%20C992%20180%20948%20310%20974%20470%20C983%20520%20978%20560%20962%20585%22%20stroke%3D%22%2367462b%22%20stroke-width%3D%2218%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M960%2054%20C938%20195%20985%20320%20954%20470%20C945%20520%20950%20555%20954%20578%22%20stroke%3D%22%23987044%22%20stroke-width%3D%228%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%0A%20%20%3Cg%20fill%3D%22%236d8b55%22%20stroke%3D%22%234b663a%22%20stroke-width%3D%222%22%3E%0A%20%20%20%20%3Cellipse%20cx%3D%2295%22%20cy%3D%2226%22%20rx%3D%2218%22%20ry%3D%229%22%20transform%3D%22rotate%28-18%2095%2026%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22138%22%20cy%3D%2242%22%20rx%3D%2218%22%20ry%3D%229%22%20transform%3D%22rotate%2828%20138%2042%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22195%22%20cy%3D%2222%22%20rx%3D%2216%22%20ry%3D%228%22%20transform%3D%22rotate%28-28%20195%2022%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22835%22%20cy%3D%2226%22%20rx%3D%2218%22%20ry%3D%229%22%20transform%3D%22rotate%2822%20835%2026%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22885%22%20cy%3D%2244%22%20rx%3D%2218%22%20ry%3D%229%22%20transform%3D%22rotate%28-26%20885%2044%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22920%22%20cy%3D%2220%22%20rx%3D%2215%22%20ry%3D%228%22%20transform%3D%22rotate%2818%20920%2020%29%22%2F%3E%0A%0A%20%20%20%20%3Cellipse%20cx%3D%2240%22%20cy%3D%22110%22%20rx%3D%2218%22%20ry%3D%229%22%20transform%3D%22rotate%2872%2040%20110%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%2228%22%20cy%3D%22160%22%20rx%3D%2217%22%20ry%3D%229%22%20transform%3D%22rotate%28-62%2028%20160%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%2246%22%20cy%3D%22510%22%20rx%3D%2218%22%20ry%3D%229%22%20transform%3D%22rotate%2870%2046%20510%29%22%2F%3E%0A%0A%20%20%20%20%3Cellipse%20cx%3D%22960%22%20cy%3D%22118%22%20rx%3D%2218%22%20ry%3D%229%22%20transform%3D%22rotate%28-70%20960%20118%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22972%22%20cy%3D%22170%22%20rx%3D%2217%22%20ry%3D%229%22%20transform%3D%22rotate%2864%20972%20170%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22954%22%20cy%3D%22505%22%20rx%3D%2218%22%20ry%3D%229%22%20transform%3D%22rotate%28-68%20954%20505%29%22%2F%3E%0A%0A%20%20%20%20%3Cellipse%20cx%3D%22110%22%20cy%3D%22588%22%20rx%3D%2218%22%20ry%3D%229%22%20transform%3D%22rotate%2818%20110%20588%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22165%22%20cy%3D%22574%22%20rx%3D%2217%22%20ry%3D%229%22%20transform%3D%22rotate%28-24%20165%20574%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22845%22%20cy%3D%22590%22%20rx%3D%2218%22%20ry%3D%229%22%20transform%3D%22rotate%28-18%20845%20590%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22900%22%20cy%3D%22574%22%20rx%3D%2217%22%20ry%3D%229%22%20transform%3D%22rotate%2826%20900%20574%29%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%0A%20%20%3Cg%20fill%3D%22none%22%20stroke%3D%22%236c8a55%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M70%2055%20C90%2085%20105%20115%20115%20150%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M930%2054%20C910%2090%20900%20118%20892%20150%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M72%20560%20C94%20530%20108%20500%20116%20466%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M928%20560%20C906%20530%20892%20500%20884%20466%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%0A%20%20%3Cg%20fill%3D%22%23819c69%22%20stroke%3D%22%23567145%22%20stroke-width%3D%221.5%22%3E%0A%20%20%20%20%3Cellipse%20cx%3D%2285%22%20cy%3D%2282%22%20rx%3D%2215%22%20ry%3D%227%22%20transform%3D%22rotate%28-28%2085%2082%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22104%22%20cy%3D%22110%22%20rx%3D%2215%22%20ry%3D%227%22%20transform%3D%22rotate%2834%20104%20110%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22914%22%20cy%3D%2284%22%20rx%3D%2215%22%20ry%3D%227%22%20transform%3D%22rotate%2828%20914%2084%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22896%22%20cy%3D%22112%22%20rx%3D%2215%22%20ry%3D%227%22%20transform%3D%22rotate%28-34%20896%20112%29%22%2F%3E%0A%0A%20%20%20%20%3Cellipse%20cx%3D%2286%22%20cy%3D%22538%22%20rx%3D%2215%22%20ry%3D%227%22%20transform%3D%22rotate%2828%2086%20538%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22104%22%20cy%3D%22510%22%20rx%3D%2215%22%20ry%3D%227%22%20transform%3D%22rotate%28-34%20104%20510%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22914%22%20cy%3D%22538%22%20rx%3D%2215%22%20ry%3D%227%22%20transform%3D%22rotate%28-28%20914%20538%29%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22896%22%20cy%3D%22510%22%20rx%3D%2215%22%20ry%3D%227%22%20transform%3D%22rotate%2834%20896%20510%29%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
 
     border-radius: 28px;
+}
+
+/* Finom növényes belső sarokhangulat, nem foltokként. */
+#program .event-card::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+
+    inset: 0;
+
+    border-radius: 22px;
 
     background:
         radial-gradient(
-            ellipse at 11px 9px,
-            rgba(76, 103, 57, 0.92) 0 30%,
-            transparent 33%
-        ) 10px 8px / 28px 20px no-repeat,
-
+            ellipse at 7% 92%,
+            rgba(82, 107, 66, 0.12) 0 7%,
+            transparent 19%
+        ),
         radial-gradient(
-            ellipse at 17px 11px,
-            rgba(111, 132, 73, 0.78) 0 29%,
-            transparent 32%
-        ) 29px 17px / 30px 21px no-repeat,
-
-        radial-gradient(
-            ellipse at 11px 9px,
-            rgba(76, 103, 57, 0.90) 0 30%,
-            transparent 33%
-        ) calc(100% - 36px) 10px / 28px 20px no-repeat,
-
-        radial-gradient(
-            ellipse at 16px 10px,
-            rgba(118, 138, 79, 0.75) 0 29%,
-            transparent 32%
-        ) calc(100% - 59px) 26px / 30px 21px no-repeat,
-
-        radial-gradient(
-            ellipse at 11px 9px,
-            rgba(82, 108, 60, 0.86) 0 30%,
-            transparent 33%
-        ) 14px calc(100% - 31px) / 28px 20px no-repeat,
-
-        radial-gradient(
-            ellipse at 11px 9px,
-            rgba(82, 108, 60, 0.88) 0 30%,
-            transparent 33%
-        ) calc(100% - 40px) calc(100% - 32px) / 28px 20px no-repeat;
+            ellipse at 94% 9%,
+            rgba(82, 107, 66, 0.10) 0 6%,
+            transparent 18%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.12),
+            transparent 28%,
+            transparent 74%,
+            rgba(173,130,56,0.035)
+        );
 }
 
-
-/* A tartalom mindig a díszkeret fölött maradjon. */
-
+/* A tartalom mindig a keret fölött marad. */
 #program .event-card > * {
     position: relative;
     z-index: 1;
 }
 
-
-/* A kör alakú helyszínikon kap egy természetesebb "fa medál" hatást. */
-
+/* Az ikon medál természetes, fa/pergamen hatást kap. */
 #program .event-card-icon {
     background:
         linear-gradient(
             145deg,
-            rgba(255, 252, 244, 0.98),
-            rgba(236, 223, 197, 0.96)
+            rgba(255, 253, 247, 1),
+            rgba(233, 218, 191, 0.98)
         );
 
-    border: 2px solid rgba(146, 104, 60, 0.52);
+    border: 2px solid rgba(154, 111, 63, 0.55);
 
     box-shadow:
-        0 4px 10px rgba(62, 44, 25, 0.16),
-        inset 0 0 0 3px rgba(255, 255, 255, 0.48);
+        0 5px 12px rgba(65, 45, 25, 0.16),
+        inset 0 0 0 3px rgba(255,255,255,0.50);
 }
 
-
-/* A kártyák belső elválasztói visszafogottabb, természetes színt kapnak. */
-
+/* A belső elválasztók természetesebb barnás tónust kapnak. */
 #program .event-row {
-    border-bottom-color: rgba(122, 94, 59, 0.20);
+    border-bottom-color: rgba(129, 98, 62, 0.20);
 }
 
-
-/* Mobilon vékonyabb ágkeret, hogy ne vegyen el helyet a tartalomtól. */
-
+/* Mobilon a keret egy kicsit vékonyabb vizuális súlyú. */
 @media (max-width: 700px) and (orientation: portrait) {
 
     #program .event-card {
-        border-radius: 17px;
+        border-radius: 16px;
     }
 
     #program .event-card::before {
-        inset: -4px;
-        border-radius: 19px;
-
-        background:
-            repeating-linear-gradient(
-                103deg,
-                #4b3625 0 8px,
-                #7c5d3b 8px 15px,
-                #5a422b 15px 21px,
-                #957148 21px 27px
-            ) top / calc(100% - 16px) 5px no-repeat,
-
-            repeating-linear-gradient(
-                77deg,
-                #5a4029 0 8px,
-                #8b6942 8px 15px,
-                #4b3523 15px 21px,
-                #a07a4c 21px 27px
-            ) bottom / calc(100% - 16px) 5px no-repeat,
-
-            repeating-linear-gradient(
-                12deg,
-                #4b3625 0 8px,
-                #80603d 8px 15px,
-                #5b432c 15px 21px,
-                #987248 21px 27px
-            ) left / 5px calc(100% - 16px) no-repeat,
-
-            repeating-linear-gradient(
-                -12deg,
-                #523925 0 8px,
-                #8f6a43 8px 15px,
-                #4d3725 15px 21px,
-                #9d764b 21px 27px
-            ) right / 5px calc(100% - 16px) no-repeat;
+        inset: -8px;
+        border-radius: 20px;
     }
 
     #program .event-card::after {
-        inset: -8px;
-        opacity: 0.88;
+        border-radius: 16px;
     }
 }
