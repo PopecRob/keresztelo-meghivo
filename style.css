@@ -2536,3 +2536,14 @@ textarea {
         margin-bottom: 22px !important;
     }
 }
+
+/* =========================================================
+   PROGRAM OLDAL – MOBIL KICKER +20%
+   Csak az "A NAGY NAP RÉSZLETEI" felirat mérete változik.
+========================================================= */
+
+@media (max-width: 700px) and (orientation: portrait) {
+    #program .compact-heading .section-kicker {
+        font-size: 1.02rem !important;
+    }
+}
