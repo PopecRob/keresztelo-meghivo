@@ -3112,3 +3112,31 @@ textarea {
         margin-right: -5px !important;
     }
 }
+
+/* =========================================================
+   PROGRAM OLDAL – ASZTALI KERET JAVÍTÁS
+   Mobilhoz NEM nyúl.
+   Laptopon eltünteti a faágas kép körüli világos téglalapot.
+========================================================= */
+
+@media (min-width: 701px) {
+
+    #program .event-card {
+        /* Ne legyen külön fehér/krémszínű doboz a keret mögött. */
+        background: transparent !important;
+        background-color: transparent !important;
+
+        /* A keret marad pontosan a kártya szélén. */
+        border-image-outset: 0 !important;
+        border-image-slice: 105 fill !important;
+
+        /* A négyszögletes dobozárnyék se rajzoljon körvonalat. */
+        box-shadow: none !important;
+
+        outline: none !important;
+    }
+
+    #program .event-cards {
+        background: transparent !important;
+    }
+}
