@@ -2594,91 +2594,262 @@ textarea {
 }
 
 /* =========================================================
-   PROGRAM OLDAL – BOTANIKUS FAÁGAS KÁRTYAKERET
-   KIZÁRÓLAG a "Nagy nap részletei" oldal két eseménykártyájára.
-   A keret egy valódi PNG kép, ezért a látvány megegyezik
-   a jóváhagyott képi mintával.
+   PROGRAM OLDAL – VÉGLEGES BOTANIKUS / FAÁGAS KÁRTYÁK
+   CSAK a "Nagy nap részletei" oldalon.
+   A teljes tartalom + térképgomb a kereten BELÜL marad.
 ========================================================= */
 
 #program .event-card {
-    position: relative;
-    isolation: isolate;
+    position: relative !important;
+    isolation: isolate !important;
 
-    /* A PNG keret adja a pergamenes belsőt is. */
-    background: transparent !important;
-    border: 0 !important;
+    /* A keret képe 9-slice border-image-ként fut körbe,
+       ezért nem nyúlik rá a szövegre. */
+    background: #fbf6ea !important;
+
+    border-style: solid !important;
+    border-width: 34px !important;
+    border-color: transparent !important;
+
+    border-image-source: url("images/jungle-card-frame.png") !important;
+    border-image-slice: 105 fill !important;
+    border-image-width: 34px !important;
+    border-image-outset: 0 !important;
+    border-image-repeat: stretch !important;
+
+    border-radius: 0 !important;
 
     box-shadow:
-        0 16px 34px rgba(56, 41, 25, 0.15) !important;
+        0 16px 34px rgba(54, 40, 24, 0.16) !important;
 
     overflow: visible !important;
+
+    /* Elég belső tér, hogy a szöveg és a gomb
+       ne érjen a levelekhez / ágakhoz. */
+    padding:
+        20px
+        28px
+        22px !important;
+
+    min-height: 390px !important;
 }
 
-/* A korábbi felső zöld-arany csík helyett maga a képi keret jelenik meg. */
-#program .event-card::before {
-    content: "";
-
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-
-    inset: -10px;
-
-    width: auto;
-    height: auto;
-
-    background-image: url("images/jungle-card-frame.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-
-    border-radius: 24px;
-
-    filter:
-        drop-shadow(0 4px 7px rgba(50, 36, 21, 0.12));
-}
-
-/* Ne maradjon semmilyen korábbi plusz díszítőréteg a kártyán. */
+/* A régi felső színcsík és minden más pszeudo-dísz eltűnik. */
+#program .event-card::before,
 #program .event-card::after {
     content: none !important;
 }
 
-/* A kártya tartalma mindig a képi keret előtt maradjon. */
+/* Minden valódi tartalom a képi keret fölött marad. */
 #program .event-card > * {
     position: relative;
-    z-index: 1;
-}
-
-/* A tartalom egy leheletnyit beljebb kerül, hogy ne ütközzön a liánnal. */
-#program .event-card {
-    padding-left: 34px;
-    padding-right: 34px;
-}
-
-/* Az ikon medál marad a jelenlegi stílusban, csak a képi keret fölé kerül. */
-#program .event-card-icon {
     z-index: 2;
 }
 
-/* Mobilon keskenyebb belső margó, hogy kényelmesen elférjen a szöveg. */
+/* A felső ikon "medálként" ráül a keretre. */
+#program .event-card-icon {
+    width: 62px !important;
+    height: 62px !important;
+
+    margin:
+        -46px
+        auto
+        10px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf7,
+            #eee0c5
+        ) !important;
+
+    border:
+        2px solid rgba(180, 132, 63, 0.72) !important;
+
+    border-radius: 50% !important;
+
+    box-shadow:
+        0 5px 13px rgba(57, 42, 24, 0.18),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.55) !important;
+
+    font-size: 26px !important;
+}
+
+/* Címek */
+#program .event-title p {
+    color: var(--gold) !important;
+}
+
+#program .event-title h3 {
+    margin:
+        2px
+        0
+        13px !important;
+
+    color: var(--green-dark) !important;
+}
+
+/* A részletek kapjanak levegőt, mint a látványterven. */
+#program .event-details {
+    gap: 10px !important;
+}
+
+#program .event-row {
+    gap: 11px !important;
+
+    padding:
+        5px
+        0
+        9px !important;
+
+    border-bottom:
+        1px solid rgba(129, 96, 58, 0.18) !important;
+}
+
+#program .event-row:last-child {
+    border-bottom: 0 !important;
+}
+
+/* A térkép / útvonal gomb valóban a keret belsejében ül. */
+#program .map-button {
+    position: relative !important;
+    z-index: 3 !important;
+
+    width: calc(100% - 24px) !important;
+
+    margin:
+        12px
+        auto
+        0 !important;
+
+    padding:
+        11px
+        16px !important;
+
+    color: #fff !important;
+    background: var(--green) !important;
+
+    border-radius: 999px !important;
+
+    box-shadow:
+        0 5px 12px rgba(53, 67, 46, 0.18) !important;
+}
+
+#program .map-button-disabled {
+    color: #887e70 !important;
+    background: rgba(238, 232, 222, 0.96) !important;
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   ÁLLÓ MOBIL – a látványtervhez közelebb
+========================================================= */
+
 @media (max-width: 700px) and (orientation: portrait) {
 
-    #program .event-card {
-        padding-left: 24px !important;
-        padding-right: 24px !important;
+    #program .event-cards {
+        gap: 16px !important;
     }
 
-    #program .event-card::before {
-        inset: -7px;
-        border-radius: 18px;
+    #program .event-card {
+        border-width: 25px !important;
+        border-image-width: 25px !important;
+        border-image-slice: 105 fill !important;
+
+        padding:
+            18px
+            18px
+            18px !important;
+
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    #program .event-card-icon {
+        width: 50px !important;
+        height: 50px !important;
+
+        margin:
+            -37px
+            auto
+            6px !important;
+
+        font-size: 22px !important;
+    }
+
+    #program .event-title h3 {
+        margin-bottom: 8px !important;
+        font-size: 22px !important;
+    }
+
+    #program .event-title p {
+        font-size: 7px !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    #program .event-details {
+        gap: 5px !important;
+    }
+
+    #program .event-row {
+        gap: 8px !important;
+
+        padding:
+            4px
+            0
+            6px !important;
+    }
+
+    #program .event-row > span {
+        min-width: 20px !important;
+        font-size: 15px !important;
+    }
+
+    #program .event-row small {
+        font-size: 7px !important;
+        letter-spacing: 1px !important;
+    }
+
+    #program .event-row strong {
+        font-size: 16px !important;
+        line-height: 1.05 !important;
+    }
+
+    #program .event-row p {
+        margin-top: 2px !important;
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+    }
+
+    #program .map-button {
+        width: calc(100% - 8px) !important;
+
+        margin-top: 8px !important;
+
+        padding:
+            8px
+            10px !important;
+
+        font-size: 10px !important;
     }
 }
 
-/* Nagyon keskeny telefonon még egy kicsit visszavesszük a belső margót. */
+
+/* Kisebb mobilon még kicsit karcsúbb keret. */
 @media (max-width: 390px) and (orientation: portrait) {
 
     #program .event-card {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        border-width: 22px !important;
+        border-image-width: 22px !important;
+
+        padding:
+            16px
+            15px
+            16px !important;
+    }
+
+    #program .event-card-icon {
+        margin-top: -34px !important;
     }
 }
