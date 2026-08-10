@@ -3063,27 +3063,44 @@ textarea {
 }
 
 /* =========================================================
-   PROGRAM OLDAL – FAÁGAS KERET HÁTTÉRBE OLVASZTÁSA
-   A keret körüli világos téglalap eltüntetése.
+   PROGRAM OLDAL – KERET SZÉLÉNEK JAVÍTÁSA V2
+   Kiindulás: a már majdnem jó, kompakt faágas verzió.
+   Csak a keret körüli téglalap-hatás tűnik el.
 ========================================================= */
 
 #program .event-card {
-    /* A belső pergamen csak a keret BELSEJÉBEN jelenjen meg,
-       ne fusson ki a border-image alá. */
-    background-clip: padding-box !important;
+    /* Ne legyen külön téglalap alakú kártyaháttér
+       a faágas border-image mögött. A PNG "fill" része
+       továbbra is kitölti a keret belsejét. */
+    background: transparent !important;
+
+    /* A négyszögletes box-shadow okozta külső kontúr eltűnik. */
+    box-shadow: none !important;
+
+    /* Semmilyen alap háttér ne rajzolódjon ki a keret sarkainál. */
+    background-color: transparent !important;
 }
 
-/* A keretkép középső részét NEM töltjük ki a PNG-vel.
-   Így a képből csak maga a faágas szegély marad. */
+/* A PNG középső pergamenrésze maradjon meg,
+   így a belső tartalom háttere nem változik. */
 #program .event-card {
-    border-image-slice: 105 !important;
+    border-image-slice: 105 fill !important;
 }
 
-/* Mobilon is ugyanez marad érvényben. */
+/* A keret körül ne legyen külön háttér a böngésző festési rétegéből. */
+#program .event-card::before,
+#program .event-card::after {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Mobilon is pontosan ugyanez. */
 @media (max-width: 700px) and (orientation: portrait) {
 
     #program .event-card {
-        border-image-slice: 105 !important;
-        background-clip: padding-box !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border-image-slice: 105 fill !important;
     }
 }
