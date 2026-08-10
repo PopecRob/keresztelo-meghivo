@@ -3061,3 +3061,29 @@ textarea {
         margin-top: 5px !important;
     }
 }
+
+/* =========================================================
+   PROGRAM OLDAL – FAÁGAS KERET HÁTTÉRBE OLVASZTÁSA
+   A keret körüli világos téglalap eltüntetése.
+========================================================= */
+
+#program .event-card {
+    /* A belső pergamen csak a keret BELSEJÉBEN jelenjen meg,
+       ne fusson ki a border-image alá. */
+    background-clip: padding-box !important;
+}
+
+/* A keretkép középső részét NEM töltjük ki a PNG-vel.
+   Így a képből csak maga a faágas szegély marad. */
+#program .event-card {
+    border-image-slice: 105 !important;
+}
+
+/* Mobilon is ugyanez marad érvényben. */
+@media (max-width: 700px) and (orientation: portrait) {
+
+    #program .event-card {
+        border-image-slice: 105 !important;
+        background-clip: padding-box !important;
+    }
+}
