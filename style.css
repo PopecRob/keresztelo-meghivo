@@ -2538,12 +2538,36 @@ textarea {
 }
 
 /* =========================================================
-   PROGRAM OLDAL – MOBIL KICKER +20%
-   Csak az "A NAGY NAP RÉSZLETEI" felirat mérete változik.
+   PROGRAM OLDAL – MOBIL FEJLÉC TÁVOLSÁG
+   A felső sor eredeti méretű, közelebb kerül az alsó sorhoz.
+   Az alsó sor helyzete változatlan.
 ========================================================= */
 
 @media (max-width: 700px) and (orientation: portrait) {
+
     #program .compact-heading .section-kicker {
-        font-size: 1.02rem !important;
+        position: relative !important;
+        top: 10px !important;
+    }
+
+    #program .compact-heading h2 {
+        top: 20px !important;
+    }
+
+    #program .compact-heading .ornament {
+        top: 20px !important;
+        margin-bottom: 30px !important;
+    }
+}
+
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
+
+    #program .compact-heading .section-kicker {
+        top: 8px !important;
+    }
+
+    #program .compact-heading h2,
+    #program .compact-heading .ornament {
+        top: 14px !important;
     }
 }
