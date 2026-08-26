@@ -23,7 +23,7 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css?v=20260826-rsvp-real-current-01">
+    <link rel="stylesheet" href="style.css?v=20260826-rsvp-premium-v1">
 </head>
 
 <body>
@@ -355,204 +355,260 @@
 
         </section>
 
-
         <!-- 4. VISSZAJELZÉS -->
 
         <section id="rsvp" class="screen-section rsvp-section">
 
-            <div class="rsvp-container">
+            <div class="rsvp-container rsvp-premium">
 
-                <div class="compact-heading">
+                <div class="rsvp-card">
 
-                    <p class="section-kicker">
-                        Visszajelzés
-                    </p>
+                    <div class="rsvp-badge" aria-hidden="true">⛪</div>
 
-                    <h2>
-                        Velünk ünnepeltek?
-                    </h2>
+                    <div class="compact-heading rsvp-heading">
 
-                    <div class="ornament">
-                        <span></span>
-                        <b>✦</b>
-                        <span></span>
+                        <p class="section-kicker">
+                            Visszajelzés
+                        </p>
+
+                        <h2>
+                            Velünk ünnepeltek?
+                        </h2>
+
+                        <div class="ornament">
+                            <span></span>
+                            <b>♥</b>
+                            <span></span>
+                        </div>
+
+                        <p class="rsvp-intro">
+                            Kérjük, jelezzetek nekünk, hogy biztosan számíthassunk rátok.
+                        </p>
+
                     </div>
 
-                </div>
 
+                    <form id="rsvp-form" class="rsvp-form">
 
-                <form id="rsvp-form" class="rsvp-form">
+                        <fieldset class="attendance-options">
 
-                    <fieldset class="attendance-options">
+                            <legend class="sr-only">
+                                Részt vesztek az eseményen?
+                            </legend>
 
-                        <legend>
-                            Részt vesztek az eseményen?
-                        </legend>
-
-                        <label class="choice-card">
-
-                            <input
-                                type="radio"
-                                name="attendance"
-                                value="igen"
-                            >
-
-                            <span>
-                                Igen, örömmel részt veszünk
-                            </span>
-
-                        </label>
-
-                        <label class="choice-card">
-
-                            <input
-                                type="radio"
-                                name="attendance"
-                                value="nem"
-                            >
-
-                            <span>
-                                Sajnos nem tudunk részt venni
-                            </span>
-
-                        </label>
-
-                    </fieldset>
-
-
-                    <div id="guest-fields" class="conditional-fields">
-
-                        <div class="form-grid">
-
-                            <div class="form-group full-width">
-
-                                <label for="guest-name">
-                                    Név
-                                </label>
+                            <label class="choice-card choice-yes">
 
                                 <input
-                                    type="text"
-                                    id="guest-name"
-                                    name="guestName"
-                                    placeholder="Például: Kovács család"
+                                    type="radio"
+                                    name="attendance"
+                                    value="igen"
                                 >
+
+                                <span class="choice-icon" aria-hidden="true">✓</span>
+
+                                <span class="choice-text">
+                                    Részt veszek
+                                </span>
+
+                            </label>
+
+                            <label class="choice-card choice-no">
+
+                                <input
+                                    type="radio"
+                                    name="attendance"
+                                    value="nem"
+                                >
+
+                                <span class="choice-icon choice-heart" aria-hidden="true">♡</span>
+
+                                <span class="choice-text">
+                                    Nem tudok részt venni
+                                </span>
+
+                            </label>
+
+                        </fieldset>
+
+
+                        <div id="guest-fields" class="conditional-fields">
+
+                            <div class="rsvp-section-title">
+                                <span></span>
+                                <strong>🌿 Vendégadatok</strong>
+                                <span></span>
+                            </div>
+
+                            <div class="form-grid">
+
+                                <div class="form-group full-width form-with-icon">
+
+                                    <span class="field-icon" aria-hidden="true">♙</span>
+
+                                    <div class="field-content">
+                                        <label for="guest-name">
+                                            Név
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            id="guest-name"
+                                            name="guestName"
+                                            placeholder="Írjátok ide a neveteket"
+                                        >
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group form-with-icon">
+
+                                    <span class="field-icon" aria-hidden="true">♧</span>
+
+                                    <div class="field-content">
+                                        <label for="guest-count">
+                                            Létszám
+                                        </label>
+
+                                        <select
+                                            id="guest-count"
+                                            name="guestCount"
+                                        >
+                                            <option value="">
+                                                Válassz létszámot
+                                            </option>
+
+                                            <option value="1">1 fő</option>
+                                            <option value="2">2 fő</option>
+                                            <option value="3">3 fő</option>
+                                            <option value="4">4 fő</option>
+                                            <option value="5">5 fő</option>
+                                            <option value="6">6 fő</option>
+                                            <option value="7">7 fő</option>
+                                            <option value="8">8 fő</option>
+                                            <option value="9">9 fő</option>
+                                            <option value="10">10 fő</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group form-with-icon">
+
+                                    <span class="field-icon" aria-hidden="true">♘</span>
+
+                                    <div class="field-content">
+                                        <label for="child-count">
+                                            Ebből gyermek (10 év alatti)
+                                        </label>
+
+                                        <select
+                                            id="child-count"
+                                            name="childCount"
+                                            disabled
+                                        >
+                                            <option value="">
+                                                Előbb válassz létszámot
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                </div>
 
                             </div>
 
 
-                            <div class="form-group">
-
-                                <label for="guest-count">
-                                    Hány fő érkezik?
-                                </label>
-
-                                <select
-                                    id="guest-count"
-                                    name="guestCount"
-                                >
-                                    <option value="">
-                                        Válassz létszámot
-                                    </option>
-
-                                    <option value="1">1 fő</option>
-                                    <option value="2">2 fő</option>
-                                    <option value="3">3 fő</option>
-                                    <option value="4">4 fő</option>
-                                    <option value="5">5 fő</option>
-                                    <option value="6">6 fő</option>
-                                    <option value="7">7 fő</option>
-                                    <option value="8">8 fő</option>
-                                    <option value="9">9 fő</option>
-                                    <option value="10">10 fő</option>
-                                </select>
-
+                            <div class="rsvp-section-title rsvp-more-title">
+                                <span></span>
+                                <strong>🌿 További információk</strong>
+                                <span></span>
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-grid">
 
-                                <label for="child-count">
-                                    Ebből gyermek (10 év alatti)
-                                </label>
+                                <fieldset class="room-options full-width">
 
-                                <select
-                                    id="child-count"
-                                    name="childCount"
-                                    disabled
-                                >
-                                    <option value="">
-                                        Előbb válassz létszámot
-                                    </option>
-                                </select>
+                                    <legend>
+                                        Szükségetek van vendégszobára?
+                                    </legend>
 
-                            </div>
+                                    <div class="room-choice-row">
 
+                                        <label>
+                                            <input
+                                                type="radio"
+                                                name="room"
+                                                value="igen"
+                                            >
+                                            <span>Igen</span>
+                                        </label>
 
-                            <fieldset class="room-options full-width">
+                                        <label>
+                                            <input
+                                                type="radio"
+                                                name="room"
+                                                value="nem"
+                                            >
+                                            <span>Nem</span>
+                                        </label>
 
-                                <legend>
-                                    Szükségetek van vendégszobára?
-                                </legend>
+                                    </div>
 
-                                <label>
-                                    <input
-                                        type="radio"
-                                        name="room"
-                                        value="igen"
-                                    >
-                                    Igen
-                                </label>
-
-                                <label>
-                                    <input
-                                        type="radio"
-                                        name="room"
-                                        value="nem"
-                                    >
-                                    Nem
-                                </label>
-
-                            </fieldset>
+                                </fieldset>
 
 
-                            <div class="form-group full-width">
+                                <div class="form-group full-width form-with-icon message-group">
 
-                                <label for="message">
-                                    Megjegyzés
-                                </label>
+                                    <span class="field-icon" aria-hidden="true">✉</span>
 
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows="2"
-                                    placeholder="Ételallergia vagy egyéb kérés..."
-                                ></textarea>
+                                    <div class="field-content">
+                                        <label for="message">
+                                            Üzenet <em>(nem kötelező)</em>
+                                        </label>
+
+                                        <textarea
+                                            id="message"
+                                            name="message"
+                                            rows="2"
+                                            placeholder="Írjatok nekünk pár kedves sort..."
+                                        ></textarea>
+                                    </div>
+
+                                </div>
 
                             </div>
 
                         </div>
 
-                    </div>
 
+                        <button
+                            type="submit"
+                            class="submit-button"
+                        >
+                            <span aria-hidden="true">➤</span>
+                            Visszajelzés elküldése
+                        </button>
 
-                    <button
-                        type="submit"
-                        class="submit-button"
-                    >
-                        Visszajelzés elküldése
-                    </button>
+                        <p
+                            id="form-status"
+                            class="form-status"
+                            aria-live="polite"
+                        ></p>
 
-                    <p
-                        id="form-status"
-                        class="form-status"
-                        aria-live="polite"
-                    ></p>
+                        <p class="rsvp-footer-note">
+                            ♥ Köszönjük, alig várjuk, hogy együtt ünnepelhessünk!
+                        </p>
 
-                </form>
+                    </form>
+
+                </div>
 
             </div>
 
         </section>
+
 
     </main>
 
