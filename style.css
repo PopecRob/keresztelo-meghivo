@@ -2581,7 +2581,7 @@ textarea {
 
     #program .program-container .compact-heading > .section-kicker {
         position: relative !important;
-        top: 24px !important;
+        top: 8px !important;
         transform: none !important;
     }
 }
@@ -2589,13 +2589,561 @@ textarea {
 @media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
 
     #program .program-container .compact-heading > .section-kicker {
-        top: 20px !important;
+        top: 6px !important;
     }
 }
 
 /* =========================================================
-   RSVP – FŐ KÁRTYA / LÁTHATÓ VÁLTOZAT
-   Csak a fő RSVP panel kinézete változik.
+   PROGRAM OLDAL – VÉGLEGES BOTANIKUS / FAÁGAS KÁRTYÁK
+   CSAK a "Nagy nap részletei" oldalon.
+   A teljes tartalom + térképgomb a kereten BELÜL marad.
+========================================================= */
+
+#program .event-card {
+    position: relative !important;
+    isolation: isolate !important;
+
+    /* A keret képe 9-slice border-image-ként fut körbe,
+       ezért nem nyúlik rá a szövegre. */
+    background: #fbf6ea !important;
+
+    border-style: solid !important;
+    border-width: 34px !important;
+    border-color: transparent !important;
+
+    border-image-source: url("images/jungle-card-frame.png") !important;
+    border-image-slice: 105 fill !important;
+    border-image-width: 34px !important;
+    border-image-outset: 0 !important;
+    border-image-repeat: stretch !important;
+
+    border-radius: 0 !important;
+
+    box-shadow:
+        0 16px 34px rgba(54, 40, 24, 0.16) !important;
+
+    overflow: visible !important;
+
+    /* Elég belső tér, hogy a szöveg és a gomb
+       ne érjen a levelekhez / ágakhoz. */
+    padding:
+        20px
+        28px
+        22px !important;
+
+    min-height: 390px !important;
+}
+
+/* A régi felső színcsík és minden más pszeudo-dísz eltűnik. */
+#program .event-card::before,
+#program .event-card::after {
+    content: none !important;
+}
+
+/* Minden valódi tartalom a képi keret fölött marad. */
+#program .event-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* A felső ikon "medálként" ráül a keretre. */
+#program .event-card-icon {
+    width: 62px !important;
+    height: 62px !important;
+
+    margin:
+        -46px
+        auto
+        10px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf7,
+            #eee0c5
+        ) !important;
+
+    border:
+        2px solid rgba(180, 132, 63, 0.72) !important;
+
+    border-radius: 50% !important;
+
+    box-shadow:
+        0 5px 13px rgba(57, 42, 24, 0.18),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.55) !important;
+
+    font-size: 26px !important;
+}
+
+/* Címek */
+#program .event-title p {
+    color: var(--gold) !important;
+}
+
+#program .event-title h3 {
+    margin:
+        2px
+        0
+        13px !important;
+
+    color: var(--green-dark) !important;
+}
+
+/* A részletek kapjanak levegőt, mint a látványterven. */
+#program .event-details {
+    gap: 10px !important;
+}
+
+#program .event-row {
+    gap: 11px !important;
+
+    padding:
+        5px
+        0
+        9px !important;
+
+    border-bottom:
+        1px solid rgba(129, 96, 58, 0.18) !important;
+}
+
+#program .event-row:last-child {
+    border-bottom: 0 !important;
+}
+
+/* A térkép / útvonal gomb valóban a keret belsejében ül. */
+#program .map-button {
+    position: relative !important;
+    z-index: 3 !important;
+
+    width: calc(100% - 24px) !important;
+
+    margin:
+        12px
+        auto
+        0 !important;
+
+    padding:
+        11px
+        16px !important;
+
+    color: #fff !important;
+    background: var(--green) !important;
+
+    border-radius: 999px !important;
+
+    box-shadow:
+        0 5px 12px rgba(53, 67, 46, 0.18) !important;
+}
+
+#program .map-button-disabled {
+    color: #887e70 !important;
+    background: rgba(238, 232, 222, 0.96) !important;
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   ÁLLÓ MOBIL – a látványtervhez közelebb
+========================================================= */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    #program .event-cards {
+        gap: 16px !important;
+    }
+
+    #program .event-card {
+        border-width: 25px !important;
+        border-image-width: 25px !important;
+        border-image-slice: 105 fill !important;
+
+        padding:
+            18px
+            18px
+            18px !important;
+
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    #program .event-card-icon {
+        width: 50px !important;
+        height: 50px !important;
+
+        margin:
+            -37px
+            auto
+            6px !important;
+
+        font-size: 22px !important;
+    }
+
+    #program .event-title h3 {
+        margin-bottom: 8px !important;
+        font-size: 22px !important;
+    }
+
+    #program .event-title p {
+        font-size: 7px !important;
+        letter-spacing: 1.5px !important;
+    }
+
+    #program .event-details {
+        gap: 5px !important;
+    }
+
+    #program .event-row {
+        gap: 8px !important;
+
+        padding:
+            4px
+            0
+            6px !important;
+    }
+
+    #program .event-row > span {
+        min-width: 20px !important;
+        font-size: 15px !important;
+    }
+
+    #program .event-row small {
+        font-size: 7px !important;
+        letter-spacing: 1px !important;
+    }
+
+    #program .event-row strong {
+        font-size: 16px !important;
+        line-height: 1.05 !important;
+    }
+
+    #program .event-row p {
+        margin-top: 2px !important;
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+    }
+
+    #program .map-button {
+        width: calc(100% - 8px) !important;
+
+        margin-top: 8px !important;
+
+        padding:
+            8px
+            10px !important;
+
+        font-size: 10px !important;
+    }
+}
+
+
+/* Kisebb mobilon még kicsit karcsúbb keret. */
+@media (max-width: 390px) and (orientation: portrait) {
+
+    #program .event-card {
+        border-width: 22px !important;
+        border-image-width: 22px !important;
+
+        padding:
+            16px
+            15px
+            16px !important;
+    }
+
+    #program .event-card-icon {
+        margin-top: -34px !important;
+    }
+}
+
+/* =========================================================
+   PROGRAM OLDAL – MOBIL MAGASSÁG JAVÍTÁS
+   A faágas keret marad, de a két kártya újra belefér
+   egy képernyőbe, így a Visszajelzés gomb is látható.
+========================================================= */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    #program .program-container {
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+
+    /* A két kártya a megmaradó helyen osztozik. */
+    #program .event-cards {
+        flex: 1 1 auto !important;
+
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 9px !important;
+
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    #program .event-card {
+        min-height: 0 !important;
+        height: 100% !important;
+
+        border-width: 17px !important;
+        border-image-width: 17px !important;
+        border-image-slice: 105 fill !important;
+
+        padding:
+            6px
+            12px
+            7px !important;
+
+        overflow: visible !important;
+    }
+
+    /* A medál kisebb lesz, de továbbra is ráül a felső ágkeretre. */
+    #program .event-card-icon {
+        width: 36px !important;
+        height: 36px !important;
+
+        margin:
+            -23px
+            auto
+            2px !important;
+
+        font-size: 17px !important;
+    }
+
+    #program .event-title p {
+        font-size: 6px !important;
+        line-height: 1 !important;
+        letter-spacing: 1.2px !important;
+    }
+
+    #program .event-title h3 {
+        margin:
+            0
+            0
+            3px !important;
+
+        font-size: 19px !important;
+        line-height: 0.98 !important;
+    }
+
+    #program .event-details {
+        gap: 1px !important;
+        min-height: 0 !important;
+    }
+
+    #program .event-row {
+        gap: 6px !important;
+
+        padding:
+            2px
+            0
+            3px !important;
+    }
+
+    #program .event-row > span {
+        min-width: 17px !important;
+        font-size: 13px !important;
+    }
+
+    #program .event-row small {
+        font-size: 6px !important;
+        line-height: 1 !important;
+        letter-spacing: 0.8px !important;
+    }
+
+    #program .event-row strong {
+        font-size: 14px !important;
+        line-height: 1 !important;
+    }
+
+    #program .event-row p {
+        margin-top: 1px !important;
+
+        font-size: 8px !important;
+        line-height: 1.1 !important;
+    }
+
+    /* A térképgomb a kereten belül marad, de nem növeli túl a kártyát. */
+    #program .map-button {
+        width: calc(100% - 4px) !important;
+
+        margin:
+            3px
+            auto
+            0 !important;
+
+        padding:
+            6px
+            8px !important;
+
+        font-size: 9px !important;
+        line-height: 1.1 !important;
+    }
+
+    /* A Visszajelzés gomb újra fixen kap helyet a két kártya alatt. */
+    #program .program-scroll-button {
+        position: static !important;
+
+        flex: 0 0 auto !important;
+
+        min-width: 145px !important;
+
+        margin:
+            7px
+            auto
+            1px !important;
+
+        padding:
+            7px
+            19px !important;
+
+        transform: none !important;
+    }
+}
+
+
+/* Alacsonyabb mobilokon még egy kevés helyet nyerünk. */
+@media (max-width: 700px) and (orientation: portrait) and (max-height: 740px) {
+
+    #program .event-cards {
+        gap: 6px !important;
+    }
+
+    #program .event-card {
+        border-width: 14px !important;
+        border-image-width: 14px !important;
+
+        padding:
+            4px
+            9px
+            5px !important;
+    }
+
+    #program .event-card-icon {
+        width: 31px !important;
+        height: 31px !important;
+
+        margin-top: -20px !important;
+
+        font-size: 14px !important;
+    }
+
+    #program .event-title h3 {
+        font-size: 17px !important;
+    }
+
+    #program .event-row {
+        padding:
+            1px
+            0
+            2px !important;
+    }
+
+    #program .event-row strong {
+        font-size: 13px !important;
+    }
+
+    #program .event-row p {
+        font-size: 7px !important;
+    }
+
+    #program .map-button {
+        padding:
+            5px
+            7px !important;
+
+        font-size: 8px !important;
+    }
+
+    #program .program-scroll-button {
+        margin-top: 5px !important;
+    }
+}
+
+/* =========================================================
+   PROGRAM OLDAL – FAÁGAS KERET LÁGY BEOLVASZTÁSA
+   A 16:43-as jó elrendezés marad.
+   A PNG széle most áttetsző, ezért nem látszik a téglalap.
+========================================================= */
+
+#program .event-card {
+    box-shadow: none !important;
+}
+
+#program .event-card::before,
+#program .event-card::after {
+    box-shadow: none !important;
+}
+
+/* =========================================================
+   PROGRAM OLDAL – MOBIL KERET FINOMÍTÁS
+   Desktop változatlan.
+   Mobilon a kártya külső négyszögletes pereme eltűnik,
+   az ágkeret vizuálisan kifut a háttérbe.
+========================================================= */
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    #program .event-card {
+        /* A border-image mögötti alapdoboz ne rajzoljon
+           külön világos téglalapot. */
+        background-color: transparent !important;
+
+        /* A keretet kissé kifelé engedjük, hogy a világos
+           PNG-perem a háttér növényzetére fusson rá. */
+        border-image-outset: 5px !important;
+
+        /* Nincs négyszögletes kártyaárnyék. */
+        box-shadow: none !important;
+    }
+
+    /* A kártyák közti világos téglalap-hatás csökkentése. */
+    #program .event-cards {
+        background: transparent !important;
+    }
+
+    /* A két kártya széle mobilon egy hajszállal szélesebb,
+       így a keret közelebb kerül a háttérhez. */
+    #program .event-card {
+        width: calc(100% + 10px) !important;
+        margin-left: -5px !important;
+        margin-right: -5px !important;
+    }
+}
+
+/* =========================================================
+   PROGRAM OLDAL – ASZTALI KERET JAVÍTÁS
+   Mobilhoz NEM nyúl.
+   Laptopon eltünteti a faágas kép körüli világos téglalapot.
+========================================================= */
+
+@media (min-width: 701px) {
+
+    #program .event-card {
+        /* Ne legyen külön fehér/krémszínű doboz a keret mögött. */
+        background: transparent !important;
+        background-color: transparent !important;
+
+        /* A keret marad pontosan a kártya szélén. */
+        border-image-outset: 0 !important;
+        border-image-slice: 105 fill !important;
+
+        /* A négyszögletes dobozárnyék se rajzoljon körvonalat. */
+        box-shadow: none !important;
+
+        outline: none !important;
+    }
+
+    #program .event-cards {
+        background: transparent !important;
+    }
+}
+
+/* =========================================================
+   RSVP – FŐ PANEL – 2026-08-26
+   A tényleges aktuális CSS-re építve.
 ========================================================= */
 
 #rsvp .rsvp-form {
@@ -2604,89 +3152,69 @@ textarea {
     overflow: hidden !important;
 
     background:
-        radial-gradient(circle at 18% 10%, rgba(255,255,255,.92) 0 7%, transparent 25%),
-        radial-gradient(circle at 84% 88%, rgba(197,174,116,.16) 0 8%, transparent 29%),
-        linear-gradient(145deg, #fffdf5 0%, #f7eed9 53%, #fffaf0 100%) !important;
+        radial-gradient(circle at 14% 10%, rgba(255,255,255,.95) 0 5%, transparent 22%),
+        radial-gradient(circle at 88% 92%, rgba(160,133,74,.18) 0 5%, transparent 26%),
+        linear-gradient(145deg, #fffdf4 0%, #f5e8cb 52%, #fffaf0 100%) !important;
 
-    border: 2px solid #b88a35 !important;
+    border: 2px solid #b78b3d !important;
     border-radius: 30px !important;
 
-    padding: clamp(22px, 3vw, 38px) !important;
-
     box-shadow:
-        0 18px 42px rgba(58, 43, 20, .20),
+        0 20px 48px rgba(49,39,22,.22),
         inset 0 0 0 6px rgba(255,255,255,.48),
-        inset 0 0 42px rgba(167,127,54,.10) !important;
+        inset 0 0 42px rgba(151,111,44,.12) !important;
 }
 
-/* belső arany keret */
 #rsvp .rsvp-form::before {
     content: "" !important;
     position: absolute !important;
-    inset: 10px !important;
+    inset: 9px !important;
     z-index: 0 !important;
     pointer-events: none !important;
 
-    border: 1px solid rgba(184,138,53,.42) !important;
+    border: 1px solid rgba(183,139,61,.42) !important;
     border-radius: 21px !important;
 
-    /* két jól látható, de elegáns levélág */
     background:
-        radial-gradient(ellipse at 2% 4%, rgba(76,105,57,.34) 0 3%, transparent 3.5%),
-        radial-gradient(ellipse at 6% 7%, rgba(102,132,73,.30) 0 3.5%, transparent 4%),
-        radial-gradient(ellipse at 10% 4%, rgba(74,103,55,.28) 0 3%, transparent 3.5%),
-        radial-gradient(ellipse at 98% 96%, rgba(76,105,57,.34) 0 3%, transparent 3.5%),
-        radial-gradient(ellipse at 94% 92%, rgba(102,132,73,.30) 0 3.5%, transparent 4%),
-        radial-gradient(ellipse at 90% 96%, rgba(74,103,55,.28) 0 3%, transparent 3.5%) !important;
+        radial-gradient(ellipse at 2% 3%, rgba(67,96,52,.40) 0 2.7%, transparent 3.2%),
+        radial-gradient(ellipse at 6% 6%, rgba(91,121,67,.34) 0 3.2%, transparent 3.7%),
+        radial-gradient(ellipse at 10% 3%, rgba(69,99,53,.31) 0 2.7%, transparent 3.2%),
+        radial-gradient(ellipse at 98% 97%, rgba(67,96,52,.40) 0 2.7%, transparent 3.2%),
+        radial-gradient(ellipse at 94% 94%, rgba(91,121,67,.34) 0 3.2%, transparent 3.7%),
+        radial-gradient(ellipse at 90% 97%, rgba(69,99,53,.31) 0 2.7%, transparent 3.2%) !important;
 }
 
-/* felső dísz / inda */
 #rsvp .rsvp-form::after {
     content: "❦" !important;
     position: absolute !important;
+    top: 3px !important;
     left: 50% !important;
-    top: -5px !important;
     transform: translateX(-50%) !important;
     z-index: 0 !important;
     pointer-events: none !important;
 
-    width: 120px !important;
-    text-align: center !important;
-
-    font-family: Georgia, "Times New Roman", serif !important;
-    font-size: 34px !important;
-    line-height: 1 !important;
-    color: #5b744b !important;
-
-    text-shadow: 0 1px 0 rgba(255,255,255,.8) !important;
+    color: #587149 !important;
+    font: 36px/1 Georgia, serif !important;
+    text-shadow: 0 1px 0 rgba(255,255,255,.85) !important;
 }
 
-/* Minden valódi űrlapelem a díszítés fölött marad. */
 #rsvp .rsvp-form > * {
     position: relative !important;
     z-index: 2 !important;
 }
 
-/* Mobil */
 @media (max-width: 700px) {
     #rsvp .rsvp-form {
-        border-width: 2px !important;
         border-radius: 24px !important;
-        padding: 21px 17px 18px !important;
-
-        box-shadow:
-            0 12px 28px rgba(58,43,20,.18),
-            inset 0 0 0 4px rgba(255,255,255,.45),
-            inset 0 0 30px rgba(167,127,54,.09) !important;
     }
 
     #rsvp .rsvp-form::before {
-        inset: 7px !important;
+        inset: 6px !important;
         border-radius: 17px !important;
     }
 
     #rsvp .rsvp-form::after {
-        top: -4px !important;
-        font-size: 28px !important;
+        font-size: 29px !important;
     }
 }
+
